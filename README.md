@@ -12,8 +12,9 @@ Extract the appropriate archive and run `Install.cmd`. `Install.cmd -CheckOnly` 
 
 | ID | Change | Source |
 |---|---|---|
-| APK-001 | ARM64-only Flutter release AOT with icon tree shaking, Dart obfuscation and existing R8/resource shrinking. | local recipe; R8/resource shrinking already enabled upstream |
-| APK-002 | Separate stable/development package IDs and a persistent private signing key; do not overwrite the official app. | local |
+| APK-001 | ARM64-only Flutter release AOT with icon tree shaking, Dart obfuscation and existing R8/resource shrinking. | `.avx1/PATCHES.json` |
+| APK-002 | Separate stable/development package IDs and a persistent private signing key; do not overwrite the official app. | `.avx1/PATCHES.json` |
+| APK-003 | Use stable Flutter 3.47.7 and latest stable Android SDK 37.2/build-tools 37.0.0; verify exact SDK pins, ARM64 ABI, persistent APK signature and 5004 Flutter tests. | `.avx1/PATCHES.json` |
 
 ## Measurements
 
@@ -23,7 +24,7 @@ Extract the appropriate archive and run `Install.cmd`. `Install.cmd -CheckOnly` 
 | JSON on Ivy Bridge | Pending stock/optimized comparison |
 | Android runtime performance | Not measured on a physical phone |
 
-Unmeasured changes have no claimed percentage. JSON timings cover serialization/parsing, not tokens/s. PGO, LTO and ISA flags apply only to the named native components; they do not turn Python or TypeScript into native code. AVX2/FMA and fast-math are not enabled.
+Unmeasured changes have no claimed percentage. JSON timings cover serialization/parsing, not tokens/s. LTO and ISA flags apply only to the named native components; they do not turn Python or TypeScript into native code. AVX2/FMA and fast-math are not enabled.
 
 ## Licensing and compatibility
 
