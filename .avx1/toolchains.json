@@ -14,5 +14,6 @@
     "commandline_tools": "cmdline-tools;23.0",
     "ndk": "ndk;29.0.14206865",
     "metadata": "https://dl.google.com/android/repository/repository2-3.xml"
-  }
+  },
+  "flutter_version": "3.47.7"
 }

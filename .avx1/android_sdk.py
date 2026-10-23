@@ -8,6 +8,13 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 
+def resolve_flutter():
+    with urllib.request.urlopen("https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json", timeout=90) as response:
+        data = json.load(response)
+    release = next(item for item in data["releases"] if item["hash"] == data["current_release"]["stable"])
+    return {"flutter_sha": release["hash"], "flutter_version": release["version"]}
+
+
 def resolve():
     with urllib.request.urlopen("https://dl.google.com/android/repository/repository2-3.xml", timeout=90) as response:
         root = ET.fromstring(response.read())
