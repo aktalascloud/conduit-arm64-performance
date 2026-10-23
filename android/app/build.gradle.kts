@@ -23,8 +23,7 @@ android {
     ndkVersion = "29.0.14206865"
 
     defaultConfig {
-        val forkChannel = providers.gradleProperty("avx1Channel").orElse("stable").get()
-        applicationId = "io.github.aktalascloud.conduit" + if (forkChannel == "development") ".dev" else ""
+        applicationId = "io.github.aktalascloud.conduit"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

@@ -6,7 +6,7 @@
   },
   {
     "id": "APK-002",
-    "description": "Separate stable/development package IDs and a persistent private signing key; do not overwrite the official app.",
+    "description": "One permanent fork application ID and persistent private signing key; one latest ARM64 APK, with upgrades from the previous stable fork APK.",
     "source": "local"
   },
   {
