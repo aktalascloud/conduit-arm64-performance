@@ -30,11 +30,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Android SDK
-        run: |
-          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null || true
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager 'platforms;android-37' 'build-tools;37.0.0' 'ndk;29.0.14206865'
-
+      - name: Install pinned current Android SDK
+        run: python .avx1/android_sdk.py
       - name: Build, test, audit and package
         env:
           BUILD_CHANNEL: ${{ matrix.channel }}
@@ -48,3 +45,4 @@ jobs:
           path: .avx1-out/*
           if-no-files-found: error
           retention-days: 7
+          include-hidden-files: true
