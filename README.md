@@ -21,7 +21,7 @@ Extended Russian UI and menu translation; interpolation parameters are checked i
 
 ## Measurements
 
-The earlier 2026-10-23 stable ARM64 experiment was 91,561,648 bytes, versus 97,324,692 bytes for the official v4.2.1 ARM64 APK: **5.92% smaller**. This compares different toolchains and package IDs; it is a download/storage measurement, not a runtime speed claim. [Official comparison artifact](https://github.com/cogwheel0/conduit/releases/tag/v4.2.1).
+The unified 2026-10-23 ARM64 APK (`c1888267`) is 91,561,648 bytes, versus 97,324,692 bytes for the official v4.2.1 ARM64 APK: **5.92% smaller**. This compares different toolchains and package IDs; it measures download/storage size. [Official comparison artifact](https://github.com/cogwheel0/conduit/releases/tag/v4.2.1).
 
 Runtime performance has not been measured on a physical phone.
 
