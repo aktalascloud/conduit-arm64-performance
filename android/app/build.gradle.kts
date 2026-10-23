@@ -15,7 +15,11 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "app.cogwheel.conduit"
-    compileSdk = 37
+    compileSdk {
+        version = release(providers.gradleProperty("avx1ApiLevel").orElse("37").get().toInt()) {
+            minorApiLevel = providers.gradleProperty("avx1MinorApiLevel").orElse("2").get().toInt()
+        }
+    }
     ndkVersion = "29.0.14206865"
 
     defaultConfig {

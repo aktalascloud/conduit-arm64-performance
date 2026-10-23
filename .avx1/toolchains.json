@@ -5,5 +5,14 @@
     "source": "https://github.com/astral-sh/python-build-standalone",
     "asset": "cpython-3.12.15+20261021-x86_64-pc-windows-msvc-install_only.tar.gz"
   },
-  "flutter_sha": "abaf9c523780a608bd46686fd5e53740a07077f8"
+  "flutter_sha": "abaf9c523780a608bd46686fd5e53740a07077f8",
+  "android": {
+    "platform": "platforms;android-37.2",
+    "api_level": 37,
+    "minor_api_level": 2,
+    "build_tools": "build-tools;37.0.0",
+    "commandline_tools": "cmdline-tools;23.0",
+    "ndk": "ndk;29.0.14206865",
+    "metadata": "https://dl.google.com/android/repository/repository2-3.xml"
+  }
 }
