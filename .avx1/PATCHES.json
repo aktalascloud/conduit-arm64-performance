@@ -13,5 +13,10 @@
     "id": "APK-003",
     "description": "Use stable Flutter 3.47.7 and latest stable Android SDK 37.2/build-tools 37.0.0; verify exact SDK pins, ARM64 ABI, persistent APK signature and 5004 Flutter tests.",
     "source": "Official Flutter release manifest and Google Android SDK repository metadata."
+  },
+  {
+    "id": "APK-004",
+    "description": "Complete Russian workspace and MCP dialogs, preserve credential-warning meaning and interpolation; restore Russian ARB parameter metadata.",
+    "source": "Reviewed Russian translation in this fork; source key/placeholder gate."
   }
 ]

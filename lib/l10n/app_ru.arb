@@ -181,7 +181,7 @@
   "chatQueuedFailedTitle": "Отправка не удалась",
   "chatQueuedFailedMessage": "Повторите ответ из очереди или отмените его.",
   "chatQueuedSnackBar": "Сообщение поставлено в очередь. Оно будет отправлено, когда сервер станет доступен.",
-  "ok": "OK",
+  "ok": "ОК",
   "inputField": "Поле ввода",
   "checkConnection": "Проверить соединение",
   "openSettings": "Открыть настройки",
@@ -1059,7 +1059,7 @@
   "chatSettingFrequencyPenalty": "Штраф за частоту",
   "chatSettingPresencePenalty": "Штраф за присутствие",
   "chatSettingMaxTokens": "Макс. токенов",
-  "chatSettingSeed": "Seed",
+  "chatSettingSeed": "Зерно генератора",
   "chatSettingStop": "Стоп-последовательности",
   "chatSettingFunctionCalling": "Вызов инструментов",
   "chatSettingFunctionCallingNative": "Нативный",
@@ -1069,9 +1069,24 @@
   "chatSettingErrorNotANumber": "Введите число.",
   "chatSettingErrorNotAWholeNumber": "Введите целое число.",
   "chatSettingErrorRange": "Введите значение от {min} до {max}.",
-  "@chatSettingErrorRange": {"placeholders": {"min": {"type": "String"}, "max": {"type": "String"}}},
+  "@chatSettingErrorRange": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
   "chatSettingErrorMinimum": "Введите {min} или больше.",
-  "@chatSettingErrorMinimum": {"placeholders": {"min": {"type": "String"}}},
+  "@chatSettingErrorMinimum": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      }
+    }
+  },
   "chatSettingErrorNotJson": "Введите слово, например json, или корректную схему JSON.",
   "chatSettingErrorNotAChoice": "Выберите поддерживаемое значение.",
   "personalConnectionsTitle": "Личные подключения",
@@ -1093,7 +1108,7 @@
   "personalConnectionsSavedForPreviousAccount": "Сохранено в аккаунте, из которого открыта эта форма. Аккаунт, в который вы вошли сейчас, не изменён.",
   "personalConnectionsDuplicate": "Другое подключение уже использует этот идентификатор.",
   "personalConnectionsNotFound": "Это подключение изменено или удалено в другом месте. Обновите и повторите попытку.",
-  "personalConnectionsUrl": "URL",
+  "personalConnectionsUrl": "Адрес",
   "personalConnectionsPath": "Путь",
   "personalConnectionsSpecSource": "Спецификация OpenAPI",
   "personalConnectionsSpecFromUrl": "Получить по URL",
@@ -2087,161 +2102,163 @@
   "workspaceImportItemImported": "Импортировано",
   "workspaceImportItemFailed": "Ошибка импорта",
   "workspaceImportDone": "Готово",
-  "workspaceModelNewTitle": "New model",
+  "workspaceModelNewTitle": "Новая модель",
   "@workspaceModelNewTitle": {
     "description": "Title shown when creating a new workspace model."
   },
-  "workspaceModelIdLabel": "Model ID",
+  "workspaceModelIdLabel": "ID модели",
   "@workspaceModelIdLabel": {
     "description": "Label for the unique model identifier field."
   },
-  "workspaceModelBaseModel": "Base model",
+  "workspaceModelBaseModel": "Базовая модель",
   "@workspaceModelBaseModel": {
     "description": "Label for the base-model selector."
   },
-  "workspaceModelBaseModelNone": "None (custom)",
+  "workspaceModelBaseModelNone": "Нет (собственная)",
   "workspaceModelBaseModelRequired": "Выберите базовую модель.",
-  "@workspaceModelBaseModelRequired": {"description": "Validation shown when a non-admin model create or protected edit has no base model."},
+  "@workspaceModelBaseModelRequired": {
+    "description": "Validation shown when a non-admin model create or protected edit has no base model."
+  },
   "@workspaceModelBaseModelNone": {
     "description": "Base-model option meaning no base model is used."
   },
-  "workspaceModelName": "Name",
+  "workspaceModelName": "Название",
   "@workspaceModelName": {
     "description": "Label for the model display-name field."
   },
-  "workspaceModelDescription": "Description",
+  "workspaceModelDescription": "Описание",
   "@workspaceModelDescription": {
     "description": "Label for the model description field."
   },
-  "workspaceModelTags": "Tags",
+  "workspaceModelTags": "Теги",
   "@workspaceModelTags": {
     "description": "Label for the model tags editor."
   },
-  "workspaceModelTagsHint": "Add tag",
+  "workspaceModelTagsHint": "Добавить тег",
   "@workspaceModelTagsHint": {
     "description": "Action chip label to add a new tag."
   },
-  "workspaceModelSystemPrompt": "System prompt",
+  "workspaceModelSystemPrompt": "Системный промпт",
   "@workspaceModelSystemPrompt": {
     "description": "Label for the model system prompt field."
   },
-  "workspaceModelSuggestionPrompts": "Suggested prompts",
+  "workspaceModelSuggestionPrompts": "Предлагаемые запросы",
   "@workspaceModelSuggestionPrompts": {
     "description": "Label for the suggested prompts editor."
   },
-  "workspaceModelAddSuggestion": "Add suggestion",
+  "workspaceModelAddSuggestion": "Добавить запрос",
   "@workspaceModelAddSuggestion": {
     "description": "Button to add a suggested prompt."
   },
-  "workspaceModelRemoveSuggestion": "Remove suggestion",
+  "workspaceModelRemoveSuggestion": "Убрать запрос",
   "@workspaceModelRemoveSuggestion": {
     "description": "Tooltip to remove a suggested prompt."
   },
-  "workspaceModelStopSequences": "Stop sequences",
+  "workspaceModelStopSequences": "Стоп-последовательности",
   "@workspaceModelStopSequences": {
     "description": "Label for the stop-sequences field."
   },
-  "workspaceModelStopHint": "Comma-separated stop sequences",
+  "workspaceModelStopHint": "Стоп-последовательности через запятую",
   "@workspaceModelStopHint": {
     "description": "Helper text for the stop-sequences field."
   },
-  "workspaceModelAdvancedParams": "Advanced parameters (JSON)",
+  "workspaceModelAdvancedParams": "Дополнительные параметры (JSON)",
   "@workspaceModelAdvancedParams": {
     "description": "Label for the advanced inference parameters JSON field."
   },
-  "workspaceModelParamsHint": "JSON object of additional parameters",
+  "workspaceModelParamsHint": "Объект JSON с дополнительными параметрами",
   "@workspaceModelParamsHint": {
     "description": "Helper text for a JSON parameters field."
   },
-  "workspaceModelInvalidJson": "Enter a valid JSON object.",
+  "workspaceModelInvalidJson": "Введите корректный объект JSON.",
   "@workspaceModelInvalidJson": {
     "description": "Validation error for a malformed JSON field."
   },
-  "workspaceModelCapabilities": "Capabilities",
+  "workspaceModelCapabilities": "Возможности",
   "@workspaceModelCapabilities": {
     "description": "Label for the model capability toggles."
   },
-  "workspaceModelTerminal": "Terminal ID",
+  "workspaceModelTerminal": "ID терминала",
   "@workspaceModelTerminal": {
     "description": "Label for the terminal identifier field."
   },
-  "workspaceModelTtsVoice": "Text-to-speech voice",
+  "workspaceModelTtsVoice": "Голос озвучивания текста",
   "@workspaceModelTtsVoice": {
     "description": "Label for the TTS voice field."
   },
-  "workspaceModelDefaultFeatures": "Default features",
+  "workspaceModelDefaultFeatures": "Возможности по умолчанию",
   "@workspaceModelDefaultFeatures": {
     "description": "Label for the default feature IDs field."
   },
-  "workspaceModelBuiltinTools": "Built-in tools (JSON)",
+  "workspaceModelBuiltinTools": "Встроенные инструменты (JSON)",
   "@workspaceModelBuiltinTools": {
     "description": "Label for the built-in tools JSON field."
   },
-  "workspaceModelKnowledge": "Knowledge",
+  "workspaceModelKnowledge": "Знания",
   "@workspaceModelKnowledge": {
     "description": "Label for the knowledge relationship selector."
   },
-  "workspaceModelTools": "Tools",
+  "workspaceModelTools": "Инструменты",
   "@workspaceModelTools": {
     "description": "Label for the tools relationship selector."
   },
-  "workspaceModelSkills": "Skills",
+  "workspaceModelSkills": "Навыки",
   "@workspaceModelSkills": {
     "description": "Label for the skills relationship selector."
   },
-  "workspaceModelFilters": "Filters",
+  "workspaceModelFilters": "Фильтры",
   "@workspaceModelFilters": {
     "description": "Label for the filter functions selector."
   },
-  "workspaceModelDefaultFilters": "Default filters",
+  "workspaceModelDefaultFilters": "Фильтры по умолчанию",
   "@workspaceModelDefaultFilters": {
     "description": "Label for the default filter functions selector."
   },
-  "workspaceModelActions": "Actions",
+  "workspaceModelActions": "Действия",
   "@workspaceModelActions": {
     "description": "Label for the action functions selector."
   },
-  "workspaceModelSectionBasics": "Basics",
+  "workspaceModelSectionBasics": "Основное",
   "@workspaceModelSectionBasics": {
     "description": "Section header for basic model fields."
   },
-  "workspaceModelSectionPrompt": "Prompt",
+  "workspaceModelSectionPrompt": "Промпт",
   "@workspaceModelSectionPrompt": {
     "description": "Section header for prompt-related model fields."
   },
-  "workspaceModelSectionAdvanced": "Advanced",
+  "workspaceModelSectionAdvanced": "Дополнительно",
   "@workspaceModelSectionAdvanced": {
     "description": "Section header for advanced model fields."
   },
-  "workspaceModelSectionRelationships": "Relationships",
+  "workspaceModelSectionRelationships": "Связи",
   "@workspaceModelSectionRelationships": {
     "description": "Section header for model relationship selectors."
   },
-  "workspaceModelSectionAccess": "Access",
+  "workspaceModelSectionAccess": "Доступ",
   "@workspaceModelSectionAccess": {
     "description": "Section header for model access controls."
   },
-  "workspaceModelProfileImage": "Profile image",
+  "workspaceModelProfileImage": "Изображение профиля",
   "@workspaceModelProfileImage": {
     "description": "Label for the model profile image."
   },
-  "workspaceModelChangeImage": "Change image",
+  "workspaceModelChangeImage": "Изменить изображение",
   "@workspaceModelChangeImage": {
     "description": "Button to pick a new profile image."
   },
-  "workspaceModelRemoveImage": "Remove image",
+  "workspaceModelRemoveImage": "Убрать изображение",
   "@workspaceModelRemoveImage": {
     "description": "Button to clear the profile image."
   },
-  "workspaceModelImageFailed": "Could not load the selected image.",
+  "workspaceModelImageFailed": "Не удалось загрузить выбранное изображение.",
   "@workspaceModelImageFailed": {
     "description": "Error when picking a profile image fails."
   },
-  "workspaceModelSelectNone": "None selected",
+  "workspaceModelSelectNone": "Ничего не выбрано",
   "@workspaceModelSelectNone": {
     "description": "Subtitle when no relationship items are selected."
   },
-  "workspaceModelSelectCount": "{count} selected",
+  "workspaceModelSelectCount": "Выбрано: {count}",
   "@workspaceModelSelectCount": {
     "description": "Subtitle showing how many relationship items are selected.",
     "placeholders": {
@@ -2250,47 +2267,47 @@
       }
     }
   },
-  "workspaceModelRelationshipEmpty": "Nothing available to select.",
+  "workspaceModelRelationshipEmpty": "Нет доступных вариантов.",
   "@workspaceModelRelationshipEmpty": {
     "description": "Empty state for a relationship picker."
   },
-  "workspaceModelManageAccess": "Manage access",
+  "workspaceModelManageAccess": "Управление доступом",
   "@workspaceModelManageAccess": {
     "description": "Action to open the access-grants sheet for a model."
   },
-  "workspaceModelClone": "Duplicate",
+  "workspaceModelClone": "Создать копию",
   "@workspaceModelClone": {
     "description": "Action that duplicates the model."
   },
-  "workspaceModelCloneSuffix": "(copy)",
+  "workspaceModelCloneSuffix": "(копия)",
   "@workspaceModelCloneSuffix": {
     "description": "Suffix appended to a duplicated model name."
   },
-  "workspaceModelActivate": "Activate",
+  "workspaceModelActivate": "Включить",
   "@workspaceModelActivate": {
     "description": "Action that marks the model active."
   },
-  "workspaceModelDeactivate": "Deactivate",
+  "workspaceModelDeactivate": "Отключить",
   "@workspaceModelDeactivate": {
     "description": "Action that marks the model inactive."
   },
-  "workspaceModelHide": "Hide from selector",
+  "workspaceModelHide": "Скрыть в списке выбора",
   "@workspaceModelHide": {
     "description": "Action that hides the model from model selectors."
   },
-  "workspaceModelUnhide": "Show in selector",
+  "workspaceModelUnhide": "Показать в списке выбора",
   "@workspaceModelUnhide": {
     "description": "Action that unhides the model in model selectors."
   },
-  "workspaceModelDelete": "Delete model",
+  "workspaceModelDelete": "Удалить модель",
   "@workspaceModelDelete": {
     "description": "Action that deletes the model."
   },
-  "workspaceModelDeleteConfirmTitle": "Delete model?",
+  "workspaceModelDeleteConfirmTitle": "Удалить модель?",
   "@workspaceModelDeleteConfirmTitle": {
     "description": "Confirmation dialog title for deleting a model."
   },
-  "workspaceModelDeleteConfirmMessage": "This permanently removes {name}.",
+  "workspaceModelDeleteConfirmMessage": "Модель {name} будет удалена без возможности восстановления.",
   "@workspaceModelDeleteConfirmMessage": {
     "description": "Confirmation dialog body for deleting a model.",
     "placeholders": {
@@ -2299,83 +2316,83 @@
       }
     }
   },
-  "workspaceModelExport": "Export model",
+  "workspaceModelExport": "Экспорт модели",
   "@workspaceModelExport": {
     "description": "Action that exports a single model as JSON."
   },
-  "workspaceModelExportAll": "Export all models",
+  "workspaceModelExportAll": "Экспорт всех моделей",
   "@workspaceModelExportAll": {
     "description": "Action that exports every readable model as JSON."
   },
-  "workspaceModelExportFailed": "The export could not be completed.",
+  "workspaceModelExportFailed": "Не удалось выполнить экспорт.",
   "@workspaceModelExportFailed": {
     "description": "Error when exporting models fails."
   },
-  "workspaceModelImport": "Import models",
+  "workspaceModelImport": "Импорт моделей",
   "@workspaceModelImport": {
     "description": "Action that imports models from JSON."
   },
-  "workspaceModelIdRequired": "A model ID is required.",
+  "workspaceModelIdRequired": "Укажите ID модели.",
   "@workspaceModelIdRequired": {
     "description": "Validation error when the model ID is empty."
   },
-  "workspaceModelNameRequired": "A name is required.",
+  "workspaceModelNameRequired": "Укажите название.",
   "@workspaceModelNameRequired": {
     "description": "Validation error when the model name is empty."
   },
-  "workspaceModelSaved": "Model saved.",
+  "workspaceModelSaved": "Модель сохранена.",
   "@workspaceModelSaved": {
     "description": "Confirmation that the model was saved."
   },
-  "workspaceModelSaveFailed": "The model could not be saved.",
+  "workspaceModelSaveFailed": "Не удалось сохранить модель.",
   "@workspaceModelSaveFailed": {
     "description": "Error when saving the model fails."
   },
-  "workspaceModelDeleted": "Model deleted.",
+  "workspaceModelDeleted": "Модель удалена.",
   "@workspaceModelDeleted": {
     "description": "Confirmation that the model was deleted."
   },
-  "workspaceModelAddAction": "Add",
+  "workspaceModelAddAction": "Добавить",
   "@workspaceModelAddAction": {
     "description": "Confirm button in a small add-text dialog."
   },
-  "workspaceKnowledgeCreateTitle": "New knowledge base",
+  "workspaceKnowledgeCreateTitle": "Новая база знаний",
   "@workspaceKnowledgeCreateTitle": {
     "description": "Title of the create form for a new knowledge base."
   },
-  "workspaceKnowledgeName": "Name",
+  "workspaceKnowledgeName": "Название",
   "@workspaceKnowledgeName": {
     "description": "Label for the knowledge base name field."
   },
-  "workspaceKnowledgeDescription": "Description",
+  "workspaceKnowledgeDescription": "Описание",
   "@workspaceKnowledgeDescription": {
     "description": "Label for the knowledge base description field."
   },
-  "workspaceKnowledgeNameRequired": "A name is required.",
+  "workspaceKnowledgeNameRequired": "Укажите название.",
   "@workspaceKnowledgeNameRequired": {
     "description": "Validation error when the knowledge base name is empty."
   },
-  "workspaceKnowledgeSaved": "Knowledge base saved.",
+  "workspaceKnowledgeSaved": "База знаний сохранена.",
   "@workspaceKnowledgeSaved": {
     "description": "Confirmation that the knowledge base was saved."
   },
-  "workspaceKnowledgeSaveFailed": "The knowledge base could not be saved.",
+  "workspaceKnowledgeSaveFailed": "Не удалось сохранить базу знаний.",
   "@workspaceKnowledgeSaveFailed": {
     "description": "Error when saving a knowledge base fails."
   },
-  "workspaceKnowledgeDeleted": "Knowledge base deleted.",
+  "workspaceKnowledgeDeleted": "База знаний удалена.",
   "@workspaceKnowledgeDeleted": {
     "description": "Confirmation that the knowledge base was deleted."
   },
-  "workspaceKnowledgeDelete": "Delete knowledge base",
+  "workspaceKnowledgeDelete": "Удалить базу знаний",
   "@workspaceKnowledgeDelete": {
     "description": "Overflow action that deletes the knowledge base."
   },
-  "workspaceKnowledgeDeleteConfirmTitle": "Delete knowledge base?",
+  "workspaceKnowledgeDeleteConfirmTitle": "Удалить базу знаний?",
   "@workspaceKnowledgeDeleteConfirmTitle": {
     "description": "Confirmation dialog title for deleting a knowledge base."
   },
-  "workspaceKnowledgeDeleteConfirmMessage": "This permanently removes {name} and detaches its files.",
+  "workspaceKnowledgeDeleteConfirmMessage": "База знаний {name} будет удалена без возможности восстановления, а её файлы откреплены.",
   "@workspaceKnowledgeDeleteConfirmMessage": {
     "description": "Confirmation dialog body for deleting a knowledge base.",
     "placeholders": {
@@ -2384,15 +2401,15 @@
       }
     }
   },
-  "workspaceKnowledgeReset": "Reset",
+  "workspaceKnowledgeReset": "Очистить",
   "@workspaceKnowledgeReset": {
     "description": "Overflow action that removes all files from a knowledge base."
   },
-  "workspaceKnowledgeResetConfirmTitle": "Reset knowledge base?",
+  "workspaceKnowledgeResetConfirmTitle": "Очистить базу знаний?",
   "@workspaceKnowledgeResetConfirmTitle": {
     "description": "Confirmation dialog title for resetting a knowledge base."
   },
-  "workspaceKnowledgeResetConfirmMessage": "This removes all files from {name} but keeps the knowledge base.",
+  "workspaceKnowledgeResetConfirmMessage": "Все файлы будут убраны из {name}, но сама база знаний сохранится.",
   "@workspaceKnowledgeResetConfirmMessage": {
     "description": "Confirmation dialog body for resetting a knowledge base.",
     "placeholders": {
@@ -2401,71 +2418,71 @@
       }
     }
   },
-  "workspaceKnowledgeResetDone": "Knowledge base reset.",
+  "workspaceKnowledgeResetDone": "База знаний очищена.",
   "@workspaceKnowledgeResetDone": {
     "description": "Confirmation that the knowledge base files were reset."
   },
-  "workspaceKnowledgeExport": "Export knowledge base",
+  "workspaceKnowledgeExport": "Экспорт базы знаний",
   "@workspaceKnowledgeExport": {
     "description": "Overflow action that exports a knowledge base archive."
   },
-  "workspaceKnowledgeExportFailed": "The export could not be completed.",
+  "workspaceKnowledgeExportFailed": "Не удалось выполнить экспорт.",
   "@workspaceKnowledgeExportFailed": {
     "description": "Error when exporting a knowledge base fails."
   },
-  "workspaceKnowledgeManageAccess": "Manage access",
+  "workspaceKnowledgeManageAccess": "Управление доступом",
   "@workspaceKnowledgeManageAccess": {
     "description": "Action that opens the sharing and access sheet for a knowledge base."
   },
-  "workspaceKnowledgeViewAll": "All",
+  "workspaceKnowledgeViewAll": "Все",
   "@workspaceKnowledgeViewAll": {
     "description": "Knowledge collection filter showing all knowledge bases."
   },
-  "workspaceKnowledgeViewCreated": "Created by you",
+  "workspaceKnowledgeViewCreated": "Созданные вами",
   "@workspaceKnowledgeViewCreated": {
     "description": "Knowledge collection filter showing bases the user created."
   },
-  "workspaceKnowledgeViewShared": "Shared with you",
+  "workspaceKnowledgeViewShared": "Доступные вам",
   "@workspaceKnowledgeViewShared": {
     "description": "Knowledge collection filter showing bases shared with the user."
   },
-  "workspaceKnowledgeSourceAll": "All sources",
+  "workspaceKnowledgeSourceAll": "Все источники",
   "@workspaceKnowledgeSourceAll": {
     "description": "Knowledge collection filter showing both local and connected sources."
   },
-  "workspaceKnowledgeSourceLocal": "Local",
+  "workspaceKnowledgeSourceLocal": "Локальные",
   "@workspaceKnowledgeSourceLocal": {
     "description": "Knowledge collection filter showing only local knowledge bases."
   },
-  "workspaceKnowledgeSourceExternal": "Connected",
+  "workspaceKnowledgeSourceExternal": "Подключённые",
   "@workspaceKnowledgeSourceExternal": {
     "description": "Knowledge collection filter showing only external/connected knowledge bases."
   },
-  "workspaceKnowledgeExternalBadge": "Connected",
+  "workspaceKnowledgeExternalBadge": "Подключено",
   "@workspaceKnowledgeExternalBadge": {
     "description": "Badge marking a knowledge base as external/connected (read-only)."
   },
-  "workspaceKnowledgeExternalReadOnly": "Connected knowledge bases are read-only in this app.",
+  "workspaceKnowledgeExternalReadOnly": "Подключённые базы знаний доступны в этом приложении только для чтения.",
   "@workspaceKnowledgeExternalReadOnly": {
     "description": "Notice shown when viewing an external/connected knowledge base."
   },
-  "workspaceKnowledgeFilesTitle": "Files",
+  "workspaceKnowledgeFilesTitle": "Файлы",
   "@workspaceKnowledgeFilesTitle": {
     "description": "Heading of the knowledge base file browser."
   },
-  "workspaceKnowledgeFilesEmpty": "No files yet.",
+  "workspaceKnowledgeFilesEmpty": "Файлов пока нет.",
   "@workspaceKnowledgeFilesEmpty": {
     "description": "Empty state when a knowledge base directory contains no files."
   },
-  "workspaceKnowledgeFilesLoadFailed": "Files could not be loaded.",
+  "workspaceKnowledgeFilesLoadFailed": "Не удалось загрузить файлы.",
   "@workspaceKnowledgeFilesLoadFailed": {
     "description": "Error when the knowledge base file list fails to load."
   },
-  "workspaceKnowledgeRefreshFiles": "Refresh",
+  "workspaceKnowledgeRefreshFiles": "Обновить",
   "@workspaceKnowledgeRefreshFiles": {
     "description": "Tooltip for the button that refreshes the knowledge file list."
   },
-  "workspaceKnowledgeRoot": "Root",
+  "workspaceKnowledgeRoot": "Корневая папка",
   "@workspaceKnowledgeRoot": {
     "description": "Breadcrumb label for the top level of a knowledge base."
   },
@@ -2473,11 +2490,11 @@
   "@workspaceKnowledgeAddMenu": {
     "description": "Tooltip for the menu that adds files or folders to a knowledge base."
   },
-  "workspaceKnowledgeUpload": "Upload file",
+  "workspaceKnowledgeUpload": "Загрузить файл",
   "@workspaceKnowledgeUpload": {
     "description": "Menu item to upload a single local file into a knowledge base."
   },
-  "workspaceKnowledgeUploading": "Uploading {name}…",
+  "workspaceKnowledgeUploading": "Загрузка {name}…",
   "@workspaceKnowledgeUploading": {
     "description": "Progress label shown while a file uploads into a knowledge base.",
     "placeholders": {
@@ -2486,63 +2503,63 @@
       }
     }
   },
-  "workspaceKnowledgeUploadFailed": "The file could not be uploaded.",
+  "workspaceKnowledgeUploadFailed": "Не удалось загрузить файл.",
   "@workspaceKnowledgeUploadFailed": {
     "description": "Error when uploading a file into a knowledge base fails."
   },
-  "workspaceKnowledgeBatchAttach": "Upload multiple files",
+  "workspaceKnowledgeBatchAttach": "Загрузить несколько файлов",
   "@workspaceKnowledgeBatchAttach": {
     "description": "Menu item to upload several local files into a knowledge base at once."
   },
-  "workspaceKnowledgeAttachExisting": "Attach server file",
+  "workspaceKnowledgeAttachExisting": "Прикрепить файл с сервера",
   "@workspaceKnowledgeAttachExisting": {
     "description": "Menu item to attach an existing server file to a knowledge base."
   },
-  "workspaceKnowledgeAttachFailed": "The file could not be attached.",
+  "workspaceKnowledgeAttachFailed": "Не удалось прикрепить файл.",
   "@workspaceKnowledgeAttachFailed": {
     "description": "Error when attaching an existing file to a knowledge base fails."
   },
-  "workspaceKnowledgeAddText": "Add text file",
+  "workspaceKnowledgeAddText": "Добавить текстовый файл",
   "@workspaceKnowledgeAddText": {
     "description": "Menu item to create a text file and attach it to a knowledge base."
   },
-  "workspaceKnowledgeAddTextName": "File name",
+  "workspaceKnowledgeAddTextName": "Имя файла",
   "@workspaceKnowledgeAddTextName": {
     "description": "Label for the file name field when adding a text file."
   },
-  "workspaceKnowledgeAddTextContent": "Content",
+  "workspaceKnowledgeAddTextContent": "Содержимое",
   "@workspaceKnowledgeAddTextContent": {
     "description": "Label for the content field when adding a text file."
   },
-  "workspaceKnowledgeAddTextFailed": "The text file could not be added.",
+  "workspaceKnowledgeAddTextFailed": "Не удалось добавить текстовый файл.",
   "@workspaceKnowledgeAddTextFailed": {
     "description": "Error when adding a text file to a knowledge base fails."
   },
-  "workspaceKnowledgeNewFolder": "New folder",
+  "workspaceKnowledgeNewFolder": "Новая папка",
   "@workspaceKnowledgeNewFolder": {
     "description": "Menu item and dialog title to create a new directory in a knowledge base."
   },
-  "workspaceKnowledgeFolderName": "Folder name",
+  "workspaceKnowledgeFolderName": "Имя папки",
   "@workspaceKnowledgeFolderName": {
     "description": "Label for the folder name field."
   },
-  "workspaceKnowledgeFolderCreateFailed": "The folder could not be created.",
+  "workspaceKnowledgeFolderCreateFailed": "Не удалось создать папку.",
   "@workspaceKnowledgeFolderCreateFailed": {
     "description": "Error when creating or renaming a knowledge base folder fails."
   },
-  "workspaceKnowledgeRenameFolder": "Rename folder",
+  "workspaceKnowledgeRenameFolder": "Переименовать папку",
   "@workspaceKnowledgeRenameFolder": {
     "description": "Action to rename a knowledge base directory."
   },
-  "workspaceKnowledgeDeleteFolder": "Delete folder",
+  "workspaceKnowledgeDeleteFolder": "Удалить папку",
   "@workspaceKnowledgeDeleteFolder": {
     "description": "Action to delete a knowledge base directory."
   },
-  "workspaceKnowledgeDeleteFolderConfirmTitle": "Delete folder?",
+  "workspaceKnowledgeDeleteFolderConfirmTitle": "Удалить папку?",
   "@workspaceKnowledgeDeleteFolderConfirmTitle": {
     "description": "Confirmation dialog title for deleting a knowledge base directory."
   },
-  "workspaceKnowledgeDeleteFolderConfirmMessage": "Files inside {name} move to the parent folder.",
+  "workspaceKnowledgeDeleteFolderConfirmMessage": "Файлы из {name} будут перемещены в родительскую папку.",
   "@workspaceKnowledgeDeleteFolderConfirmMessage": {
     "description": "Confirmation dialog body for deleting a knowledge base directory.",
     "placeholders": {
@@ -2551,43 +2568,43 @@
       }
     }
   },
-  "workspaceKnowledgeFolderDeleteFailed": "The folder could not be deleted.",
+  "workspaceKnowledgeFolderDeleteFailed": "Не удалось удалить папку.",
   "@workspaceKnowledgeFolderDeleteFailed": {
     "description": "Error when deleting a knowledge base folder fails."
   },
-  "workspaceKnowledgeFileRename": "Rename",
+  "workspaceKnowledgeFileRename": "Переименовать",
   "@workspaceKnowledgeFileRename": {
     "description": "Per-file action to rename a knowledge base file."
   },
-  "workspaceKnowledgeFileRefresh": "Re-index",
+  "workspaceKnowledgeFileRefresh": "Переиндексировать",
   "@workspaceKnowledgeFileRefresh": {
     "description": "Per-file action to re-index a knowledge base file."
   },
-  "workspaceKnowledgeFileReindexed": "Re-indexing started.",
+  "workspaceKnowledgeFileReindexed": "Переиндексация началась.",
   "@workspaceKnowledgeFileReindexed": {
     "description": "Confirmation that re-indexing a knowledge base file began."
   },
-  "workspaceKnowledgeFileMove": "Move",
+  "workspaceKnowledgeFileMove": "Переместить",
   "@workspaceKnowledgeFileMove": {
     "description": "Per-file action to move a knowledge base file to another folder."
   },
-  "workspaceKnowledgeFileRenameFailed": "The file could not be renamed.",
+  "workspaceKnowledgeFileRenameFailed": "Не удалось переименовать файл.",
   "@workspaceKnowledgeFileRenameFailed": {
     "description": "Error when renaming a knowledge base file fails."
   },
-  "workspaceKnowledgeFileMoveFailed": "The file could not be moved.",
+  "workspaceKnowledgeFileMoveFailed": "Не удалось переместить файл.",
   "@workspaceKnowledgeFileMoveFailed": {
     "description": "Error when moving a knowledge base file fails."
   },
-  "workspaceKnowledgeFileDetach": "Remove from knowledge",
+  "workspaceKnowledgeFileDetach": "Убрать из базы знаний",
   "@workspaceKnowledgeFileDetach": {
     "description": "Per-file action to detach a file from a knowledge base."
   },
-  "workspaceKnowledgeFileDetachTitle": "Remove file?",
+  "workspaceKnowledgeFileDetachTitle": "Убрать файл?",
   "@workspaceKnowledgeFileDetachTitle": {
     "description": "Confirmation dialog title for detaching a file from a knowledge base."
   },
-  "workspaceKnowledgeFileDetachMessage": "Remove {name} from this knowledge base?",
+  "workspaceKnowledgeFileDetachMessage": "Убрать {name} из этой базы знаний?",
   "@workspaceKnowledgeFileDetachMessage": {
     "description": "Confirmation dialog body for detaching a file from a knowledge base.",
     "placeholders": {
@@ -2596,143 +2613,143 @@
       }
     }
   },
-  "workspaceKnowledgeFileDeleteUnderlying": "Also delete the underlying file",
+  "workspaceKnowledgeFileDeleteUnderlying": "Также удалить сам файл",
   "@workspaceKnowledgeFileDeleteUnderlying": {
     "description": "Checkbox to delete the stored file when detaching, shown to owners/admins."
   },
-  "workspaceKnowledgeFileDetachFailed": "The file could not be removed.",
+  "workspaceKnowledgeFileDetachFailed": "Не удалось убрать файл.",
   "@workspaceKnowledgeFileDetachFailed": {
     "description": "Error when detaching a file from a knowledge base fails."
   },
-  "workspaceKnowledgeMoveTitle": "Move to folder",
+  "workspaceKnowledgeMoveTitle": "Переместить в папку",
   "@workspaceKnowledgeMoveTitle": {
     "description": "Title of the sheet for choosing a destination folder."
   },
-  "workspaceKnowledgeMoveRoot": "Root (no folder)",
+  "workspaceKnowledgeMoveRoot": "Корень (без папки)",
   "@workspaceKnowledgeMoveRoot": {
     "description": "Move destination representing the knowledge base root."
   },
-  "workspaceKnowledgeStatusPending": "Processing…",
+  "workspaceKnowledgeStatusPending": "Обработка…",
   "@workspaceKnowledgeStatusPending": {
     "description": "Status shown for a knowledge base file still being ingested."
   },
-  "workspaceKnowledgeStatusFailed": "Failed",
+  "workspaceKnowledgeStatusFailed": "Ошибка",
   "@workspaceKnowledgeStatusFailed": {
     "description": "Status shown for a knowledge base file whose ingestion failed."
   },
-  "workspacePromptCreateTitle": "New prompt",
+  "workspacePromptCreateTitle": "Новый промпт",
   "@workspacePromptCreateTitle": {
     "description": "Title shown while creating a new workspace prompt."
   },
-  "workspacePromptName": "Name",
+  "workspacePromptName": "Название",
   "@workspacePromptName": {
     "description": "Label for the prompt name field."
   },
-  "workspacePromptNameRequired": "Name is required.",
+  "workspacePromptNameRequired": "Укажите название.",
   "@workspacePromptNameRequired": {
     "description": "Validation error when the prompt name is empty."
   },
-  "workspacePromptCommand": "Command",
+  "workspacePromptCommand": "Команда",
   "@workspacePromptCommand": {
     "description": "Label for the prompt slash-command field."
   },
-  "workspacePromptCommandHint": "Only letters, numbers, hyphens, and underscores. Type it as a slash command in chat.",
+  "workspacePromptCommandHint": "Только буквы, цифры, дефисы и подчёркивания. Вводите в чате как команду с косой чертой.",
   "@workspacePromptCommandHint": {
     "description": "Helper text explaining the allowed prompt command characters."
   },
-  "workspacePromptCommandRequired": "Command is required.",
+  "workspacePromptCommandRequired": "Укажите команду.",
   "@workspacePromptCommandRequired": {
     "description": "Validation error when the prompt command is empty."
   },
-  "workspacePromptCommandInvalid": "Only letters, numbers, hyphens, and underscores are allowed.",
+  "workspacePromptCommandInvalid": "Допустимы только буквы, цифры, дефисы и подчёркивания.",
   "@workspacePromptCommandInvalid": {
     "description": "Validation error when the prompt command contains illegal characters."
   },
-  "workspacePromptCommandTaken": "That command is already in use.",
+  "workspacePromptCommandTaken": "Эта команда уже используется.",
   "@workspacePromptCommandTaken": {
     "description": "Error shown when saving a prompt whose command collides with another prompt."
   },
-  "workspacePromptContent": "Prompt content",
+  "workspacePromptContent": "Содержимое промпта",
   "@workspacePromptContent": {
     "description": "Label for the prompt template body field."
   },
-  "workspacePromptContentHint": "Write the prompt template…",
+  "workspacePromptContentHint": "Введите шаблон промпта…",
   "@workspacePromptContentHint": {
     "description": "Placeholder text for the empty prompt content field."
   },
-  "workspacePromptContentRequired": "Prompt content is required.",
+  "workspacePromptContentRequired": "Введите содержимое промпта.",
   "@workspacePromptContentRequired": {
     "description": "Validation error when the prompt content is empty."
   },
-  "workspacePromptWriteTab": "Write",
+  "workspacePromptWriteTab": "Редактор",
   "@workspacePromptWriteTab": {
     "description": "Toggle label for the editable prompt content view."
   },
-  "workspacePromptPreviewTab": "Preview",
+  "workspacePromptPreviewTab": "Предпросмотр",
   "@workspacePromptPreviewTab": {
     "description": "Toggle label for the rendered markdown preview of the prompt content."
   },
-  "workspacePromptPreviewEmpty": "Nothing to preview yet.",
+  "workspacePromptPreviewEmpty": "Пока нечего просматривать.",
   "@workspacePromptPreviewEmpty": {
     "description": "Empty-state text shown in the prompt preview when there is no content."
   },
-  "workspacePromptTags": "Tags",
+  "workspacePromptTags": "Теги",
   "@workspacePromptTags": {
     "description": "Label for the prompt tags field."
   },
-  "workspacePromptTagAdd": "Add tag",
+  "workspacePromptTagAdd": "Добавить тег",
   "@workspacePromptTagAdd": {
     "description": "Action to add a tag to a prompt."
   },
-  "workspacePromptVersionSection": "Version",
+  "workspacePromptVersionSection": "Версия",
   "@workspacePromptVersionSection": {
     "description": "Section header for prompt versioning controls."
   },
-  "workspacePromptCommitMessage": "Commit message",
+  "workspacePromptCommitMessage": "Описание изменений",
   "@workspacePromptCommitMessage": {
     "description": "Label for the optional commit message recorded with a prompt version."
   },
-  "workspacePromptCommitMessageHint": "Describe what changed (optional)",
+  "workspacePromptCommitMessageHint": "Опишите изменения (необязательно)",
   "@workspacePromptCommitMessageHint": {
     "description": "Placeholder for the prompt commit message field."
   },
-  "workspacePromptSetProduction": "Set as production version",
+  "workspacePromptSetProduction": "Сделать рабочей версией",
   "@workspacePromptSetProduction": {
     "description": "Toggle that marks the saved prompt version as the live production version."
   },
-  "workspacePromptSetProductionSubtitle": "Make this the live version used in chat.",
+  "workspacePromptSetProductionSubtitle": "Использовать эту версию в чате.",
   "@workspacePromptSetProductionSubtitle": {
     "description": "Explanation for the production-version toggle."
   },
-  "workspacePromptManageAccess": "Manage access",
+  "workspacePromptManageAccess": "Управление доступом",
   "@workspacePromptManageAccess": {
     "description": "Action to open the sharing/access editor for a prompt."
   },
-  "workspacePromptClone": "Duplicate",
+  "workspacePromptClone": "Создать копию",
   "@workspacePromptClone": {
     "description": "Overflow action that clones a prompt."
   },
-  "workspacePromptCloneSuffix": "(copy)",
+  "workspacePromptCloneSuffix": "(копия)",
   "@workspacePromptCloneSuffix": {
     "description": "Suffix appended to the name and command of a cloned prompt."
   },
-  "workspacePromptUpdateDetails": "Save name & command only",
+  "workspacePromptUpdateDetails": "Сохранить только название и команду",
   "@workspacePromptUpdateDetails": {
     "description": "Overflow action that updates prompt metadata without creating a new version."
   },
-  "workspacePromptDetailsSaved": "Details saved",
+  "workspacePromptDetailsSaved": "Сведения сохранены",
   "@workspacePromptDetailsSaved": {
     "description": "Confirmation that prompt name and command were updated."
   },
-  "workspacePromptActivate": "Activate",
+  "workspacePromptActivate": "Включить",
   "@workspacePromptActivate": {
     "description": "Overflow action that enables a prompt."
   },
-  "workspacePromptDeactivate": "Deactivate",
+  "workspacePromptDeactivate": "Отключить",
   "@workspacePromptDeactivate": {
     "description": "Overflow action that disables a prompt."
   },
-  "workspacePromptDelete": "Delete prompt",
+  "workspacePromptDelete": "Удалить промпт",
   "@workspacePromptDelete": {
     "description": "Overflow action that deletes a prompt."
   },
@@ -2749,211 +2766,211 @@
       }
     }
   },
-  "workspacePromptDeleted": "Prompt deleted",
+  "workspacePromptDeleted": "Промпт удалён",
   "@workspacePromptDeleted": {
     "description": "Confirmation that a prompt was deleted."
   },
-  "workspacePromptSaved": "Prompt saved",
+  "workspacePromptSaved": "Промпт сохранён",
   "@workspacePromptSaved": {
     "description": "Confirmation that a prompt was saved."
   },
-  "workspacePromptSaveFailed": "Couldn't save the prompt. Please try again.",
+  "workspacePromptSaveFailed": "Не удалось сохранить промпт. Повторите попытку.",
   "@workspacePromptSaveFailed": {
     "description": "Error shown when saving a prompt fails."
   },
-  "workspacePromptImport": "Import prompts",
+  "workspacePromptImport": "Импорт промптов",
   "@workspacePromptImport": {
     "description": "Overflow action that imports prompt definitions from JSON."
   },
-  "workspacePromptExport": "Export prompts",
+  "workspacePromptExport": "Экспорт промптов",
   "@workspacePromptExport": {
     "description": "Overflow action that exports readable prompts as JSON."
   },
-  "workspacePromptExportFailed": "Couldn't export prompts.",
+  "workspacePromptExportFailed": "Не удалось экспортировать промпты.",
   "@workspacePromptExportFailed": {
     "description": "Error shown when exporting prompts fails."
   },
-  "workspacePromptHistory": "Version history",
+  "workspacePromptHistory": "История версий",
   "@workspacePromptHistory": {
     "description": "Header of the prompt version-history panel."
   },
-  "workspacePromptHistoryEmpty": "No versions yet.",
+  "workspacePromptHistoryEmpty": "Версий пока нет.",
   "@workspacePromptHistoryEmpty": {
     "description": "Empty-state text when a prompt has no version history."
   },
-  "workspacePromptHistoryLoadFailed": "Couldn't load version history.",
+  "workspacePromptHistoryLoadFailed": "Не удалось загрузить историю версий.",
   "@workspacePromptHistoryLoadFailed": {
     "description": "Error shown when loading prompt history fails."
   },
-  "workspacePromptHistoryCommitFallback": "No commit message",
+  "workspacePromptHistoryCommitFallback": "Нет описания изменений",
   "@workspacePromptHistoryCommitFallback": {
     "description": "Placeholder shown for a history entry without a commit message."
   },
-  "workspacePromptHistoryLive": "Live",
+  "workspacePromptHistoryLive": "Рабочая",
   "@workspacePromptHistoryLive": {
     "description": "Badge marking the active production version of a prompt."
   },
-  "workspacePromptHistoryDiff": "Compare with production",
+  "workspacePromptHistoryDiff": "Сравнить с рабочей версией",
   "@workspacePromptHistoryDiff": {
     "description": "Action to diff a prompt version against the production version."
   },
-  "workspacePromptHistoryDiffTitle": "Version comparison",
+  "workspacePromptHistoryDiffTitle": "Сравнение версий",
   "@workspacePromptHistoryDiffTitle": {
     "description": "Title of the prompt version diff sheet."
   },
-  "workspacePromptHistoryDiffEmpty": "No content differences.",
+  "workspacePromptHistoryDiffEmpty": "Содержимое не отличается.",
   "@workspacePromptHistoryDiffEmpty": {
     "description": "Shown when two prompt versions have identical content."
   },
-  "workspacePromptHistoryDiffNameChanged": "The name changed between these versions.",
+  "workspacePromptHistoryDiffNameChanged": "В этих версиях различаются названия.",
   "@workspacePromptHistoryDiffNameChanged": {
     "description": "Note shown in the diff sheet when the prompt name changed."
   },
-  "workspacePromptHistoryDiffFailed": "Couldn't compute the diff.",
+  "workspacePromptHistoryDiffFailed": "Не удалось сравнить версии.",
   "@workspacePromptHistoryDiffFailed": {
     "description": "Error shown when computing a prompt version diff fails."
   },
-  "workspacePromptHistoryRestore": "Restore this version",
+  "workspacePromptHistoryRestore": "Восстановить эту версию",
   "@workspacePromptHistoryRestore": {
     "description": "Action that loads a version snapshot back into the editor."
   },
-  "workspacePromptHistoryRestored": "Version content restored. Save to keep it.",
+  "workspacePromptHistoryRestored": "Содержимое версии восстановлено. Сохраните изменения.",
   "@workspacePromptHistoryRestored": {
     "description": "Confirmation that a version snapshot was loaded into the editor."
   },
-  "workspacePromptHistorySetProduction": "Set as production",
+  "workspacePromptHistorySetProduction": "Сделать рабочей",
   "@workspacePromptHistorySetProduction": {
     "description": "Action that pins a version as the production version."
   },
-  "workspacePromptHistoryProductionSet": "Production version updated.",
+  "workspacePromptHistoryProductionSet": "Рабочая версия обновлена.",
   "@workspacePromptHistoryProductionSet": {
     "description": "Confirmation that the production version was changed."
   },
-  "workspacePromptHistoryDelete": "Delete version",
+  "workspacePromptHistoryDelete": "Удалить версию",
   "@workspacePromptHistoryDelete": {
     "description": "Action that deletes a prompt history entry."
   },
-  "workspacePromptHistoryDeleteConfirmTitle": "Delete version?",
+  "workspacePromptHistoryDeleteConfirmTitle": "Удалить версию?",
   "@workspacePromptHistoryDeleteConfirmTitle": {
     "description": "Confirmation dialog title for deleting a prompt version."
   },
-  "workspacePromptHistoryDeleteConfirmMessage": "This version snapshot will be removed. This can't be undone.",
+  "workspacePromptHistoryDeleteConfirmMessage": "Снимок этой версии будет удалён без возможности восстановления.",
   "@workspacePromptHistoryDeleteConfirmMessage": {
     "description": "Confirmation dialog body for deleting a prompt version."
   },
-  "workspacePromptHistoryDeleted": "Version deleted",
+  "workspacePromptHistoryDeleted": "Версия удалена",
   "@workspacePromptHistoryDeleted": {
     "description": "Confirmation that a prompt version was deleted."
   },
-  "workspacePromptHistoryDeleteProduction": "The live production version can't be deleted.",
+  "workspacePromptHistoryDeleteProduction": "Текущую рабочую версию удалить нельзя.",
   "@workspacePromptHistoryDeleteProduction": {
     "description": "Error shown when trying to delete the active production version."
   },
-  "workspaceSkillCreateTitle": "New skill",
+  "workspaceSkillCreateTitle": "Новый навык",
   "@workspaceSkillCreateTitle": {
     "description": "Title shown while creating a new workspace skill."
   },
-  "workspaceSkillName": "Name",
+  "workspaceSkillName": "Название",
   "@workspaceSkillName": {
     "description": "Label for the skill name field."
   },
-  "workspaceSkillNameHint": "e.g. Code Review Guidelines",
+  "workspaceSkillNameHint": "Например, Правила проверки кода",
   "@workspaceSkillNameHint": {
     "description": "Placeholder example for the skill name field."
   },
-  "workspaceSkillNameRequired": "Name is required.",
+  "workspaceSkillNameRequired": "Укажите название.",
   "@workspaceSkillNameRequired": {
     "description": "Validation error when the skill name is empty."
   },
-  "workspaceSkillId": "Skill ID",
+  "workspaceSkillId": "ID навыка",
   "@workspaceSkillId": {
     "description": "Label for the skill identifier field."
   },
-  "workspaceSkillIdHint": "e.g. code-review-guidelines",
+  "workspaceSkillIdHint": "Например, code-review-guidelines",
   "@workspaceSkillIdHint": {
     "description": "Placeholder example for the skill identifier field."
   },
-  "workspaceSkillIdRequired": "Skill ID is required.",
+  "workspaceSkillIdRequired": "Укажите ID навыка.",
   "@workspaceSkillIdRequired": {
     "description": "Validation error when the skill identifier is empty."
   },
-  "workspaceSkillIdInvalid": "Only letters, numbers, hyphens, and underscores are allowed.",
+  "workspaceSkillIdInvalid": "Допустимы только буквы, цифры, дефисы и подчёркивания.",
   "@workspaceSkillIdInvalid": {
     "description": "Validation error when the skill identifier contains illegal characters."
   },
-  "workspaceSkillIdTaken": "That skill ID or name is already in use.",
+  "workspaceSkillIdTaken": "Такой ID или название навыка уже используется.",
   "@workspaceSkillIdTaken": {
     "description": "Error shown when saving a skill whose id or name collides with another skill."
   },
-  "workspaceSkillDescription": "Description",
+  "workspaceSkillDescription": "Описание",
   "@workspaceSkillDescription": {
     "description": "Label for the optional skill description field."
   },
-  "workspaceSkillDescriptionHint": "e.g. Step-by-step instructions for code reviews",
+  "workspaceSkillDescriptionHint": "Например, Пошаговая инструкция по проверке кода",
   "@workspaceSkillDescriptionHint": {
     "description": "Placeholder example for the skill description field."
   },
-  "workspaceSkillContent": "Instructions",
+  "workspaceSkillContent": "Инструкции",
   "@workspaceSkillContent": {
     "description": "Label for the skill Markdown instructions body field."
   },
-  "workspaceSkillContentHint": "Enter skill instructions in markdown…",
+  "workspaceSkillContentHint": "Введите инструкции навыка в формате Markdown…",
   "@workspaceSkillContentHint": {
     "description": "Placeholder text for the empty skill instructions field."
   },
-  "workspaceSkillContentRequired": "Instructions are required.",
+  "workspaceSkillContentRequired": "Введите инструкции.",
   "@workspaceSkillContentRequired": {
     "description": "Validation error when the skill instructions are empty."
   },
-  "workspaceSkillWriteTab": "Write",
+  "workspaceSkillWriteTab": "Редактор",
   "@workspaceSkillWriteTab": {
     "description": "Toggle label for the editable skill instructions view."
   },
-  "workspaceSkillPreviewTab": "Preview",
+  "workspaceSkillPreviewTab": "Предпросмотр",
   "@workspaceSkillPreviewTab": {
     "description": "Toggle label for the rendered markdown preview of the skill instructions."
   },
-  "workspaceSkillPreviewEmpty": "Nothing to preview yet.",
+  "workspaceSkillPreviewEmpty": "Пока нечего просматривать.",
   "@workspaceSkillPreviewEmpty": {
     "description": "Empty-state text shown in the skill preview when there is no content."
   },
-  "workspaceSkillManageAccess": "Manage access",
+  "workspaceSkillManageAccess": "Управление доступом",
   "@workspaceSkillManageAccess": {
     "description": "Action to open the sharing/access editor for a skill."
   },
-  "workspaceSkillSaved": "Skill saved",
+  "workspaceSkillSaved": "Навык сохранён",
   "@workspaceSkillSaved": {
     "description": "Confirmation that a skill was saved."
   },
-  "workspaceSkillSaveFailed": "Couldn't save the skill. Please try again.",
+  "workspaceSkillSaveFailed": "Не удалось сохранить навык. Повторите попытку.",
   "@workspaceSkillSaveFailed": {
     "description": "Error shown when saving a skill fails."
   },
-  "workspaceSkillClone": "Duplicate",
+  "workspaceSkillClone": "Создать копию",
   "@workspaceSkillClone": {
     "description": "Overflow action that clones a skill."
   },
-  "workspaceSkillCloneSuffix": "(Clone)",
+  "workspaceSkillCloneSuffix": "(копия)",
   "@workspaceSkillCloneSuffix": {
     "description": "Suffix appended to the name of a cloned skill."
   },
-  "workspaceSkillActivate": "Activate",
+  "workspaceSkillActivate": "Включить",
   "@workspaceSkillActivate": {
     "description": "Overflow action that enables a skill."
   },
-  "workspaceSkillDeactivate": "Deactivate",
+  "workspaceSkillDeactivate": "Отключить",
   "@workspaceSkillDeactivate": {
     "description": "Overflow action that disables a skill."
   },
-  "workspaceSkillDelete": "Delete skill",
+  "workspaceSkillDelete": "Удалить навык",
   "@workspaceSkillDelete": {
     "description": "Overflow action that deletes a skill."
   },
-  "workspaceSkillDeleteConfirmTitle": "Delete skill?",
+  "workspaceSkillDeleteConfirmTitle": "Удалить навык?",
   "@workspaceSkillDeleteConfirmTitle": {
     "description": "Confirmation dialog title for deleting a skill."
   },
-  "workspaceSkillDeleteConfirmMessage": "\"{name}\" will be permanently deleted.",
+  "workspaceSkillDeleteConfirmMessage": "Навык «{name}» будет удалён без возможности восстановления.",
   "@workspaceSkillDeleteConfirmMessage": {
     "description": "Confirmation dialog body for deleting a skill.",
     "placeholders": {
@@ -2962,78 +2979,78 @@
       }
     }
   },
-  "workspaceSkillDeleted": "Skill deleted",
+  "workspaceSkillDeleted": "Навык удалён",
   "@workspaceSkillDeleted": {
     "description": "Confirmation that a skill was deleted."
   },
-  "workspaceSkillImport": "Import skills",
+  "workspaceSkillImport": "Импорт навыков",
   "@workspaceSkillImport": {
     "description": "Title of the JSON skill import sheet."
   },
-  "workspaceSkillImportMarkdown": "Import Markdown",
+  "workspaceSkillImportMarkdown": "Импорт Markdown",
   "@workspaceSkillImportMarkdown": {
     "description": "Overflow action that imports a skill from a Markdown file into the create editor."
   },
-  "workspaceSkillImportJson": "Import JSON",
+  "workspaceSkillImportJson": "Импорт JSON",
   "@workspaceSkillImportJson": {
     "description": "Overflow action that imports one or more skills from a JSON file."
   },
-  "workspaceSkillImportMarkdownLoaded": "Markdown loaded. Review and save to create the skill.",
+  "workspaceSkillImportMarkdownLoaded": "Markdown загружен. Проверьте содержимое и сохраните навык.",
   "@workspaceSkillImportMarkdownLoaded": {
     "description": "Confirmation that a Markdown file was loaded into the unsaved skill editor."
   },
-  "workspaceSkillImportMarkdownFailed": "Couldn't read the Markdown file.",
+  "workspaceSkillImportMarkdownFailed": "Не удалось прочитать файл Markdown.",
   "@workspaceSkillImportMarkdownFailed": {
     "description": "Error shown when reading a Markdown skill file fails."
   },
-  "workspaceSkillExport": "Export skills",
+  "workspaceSkillExport": "Экспорт навыков",
   "@workspaceSkillExport": {
     "description": "Overflow action that exports readable skills as JSON."
   },
-  "workspaceSkillExportFailed": "Couldn't export skills.",
+  "workspaceSkillExportFailed": "Не удалось экспортировать навыки.",
   "@workspaceSkillExportFailed": {
     "description": "Error shown when exporting skills fails."
   },
-  "workspaceToolCreateTitle": "Create tool",
-  "workspaceToolName": "Name",
-  "workspaceToolNameHint": "e.g. My Tools",
-  "workspaceToolNameRequired": "Enter a tool name.",
-  "workspaceToolId": "Tool ID",
-  "workspaceToolIdHint": "Letters, numbers, and underscores; can't start with a number.",
-  "workspaceToolIdRequired": "Enter a tool ID.",
-  "workspaceToolIdInvalid": "Tool IDs use letters, numbers, and underscores and can't start with a number.",
-  "workspaceToolIdTaken": "That tool ID is already in use.",
-  "workspaceToolDescription": "Description",
-  "workspaceToolDescriptionHint": "e.g. Tools for performing various operations",
-  "workspaceToolContent": "Python source",
-  "workspaceToolContentHint": "Write your tool as a Python class named Tools…",
-  "workspaceToolContentRequired": "Add Python source before saving.",
+  "workspaceToolCreateTitle": "Новый инструмент",
+  "workspaceToolName": "Название",
+  "workspaceToolNameHint": "Например, Мои инструменты",
+  "workspaceToolNameRequired": "Укажите название инструмента.",
+  "workspaceToolId": "ID инструмента",
+  "workspaceToolIdHint": "Буквы, цифры и подчёркивания; первый символ — не цифра.",
+  "workspaceToolIdRequired": "Укажите ID инструмента.",
+  "workspaceToolIdInvalid": "В ID инструмента допустимы буквы, цифры и подчёркивания; первый символ не должен быть цифрой.",
+  "workspaceToolIdTaken": "Такой ID инструмента уже используется.",
+  "workspaceToolDescription": "Описание",
+  "workspaceToolDescriptionHint": "Например, Инструменты для различных операций",
+  "workspaceToolContent": "Код Python",
+  "workspaceToolContentHint": "Опишите инструмент как класс Python с именем Tools…",
+  "workspaceToolContentRequired": "Перед сохранением добавьте код Python.",
   "workspaceToolWarning": "Tools run arbitrary Python on the server — only add code from sources you trust.",
-  "workspaceToolSaved": "Tool saved",
-  "workspaceToolDeleted": "Tool deleted",
-  "workspaceToolSaveFailed": "Couldn't save the tool.",
-  "workspaceToolManageAccess": "Manage access",
-  "workspaceToolClone": "Duplicate",
-  "workspaceToolCloneSuffix": "(Clone)",
-  "workspaceToolDelete": "Delete",
+  "workspaceToolSaved": "Инструмент сохранён",
+  "workspaceToolDeleted": "Инструмент удалён",
+  "workspaceToolSaveFailed": "Не удалось сохранить инструмент.",
+  "workspaceToolManageAccess": "Управление доступом",
+  "workspaceToolClone": "Создать копию",
+  "workspaceToolCloneSuffix": "(копия)",
+  "workspaceToolDelete": "Удалить",
   "workspaceToolDeleteConfirmTitle": "Удалить инструмент?",
   "workspaceToolDeleteConfirmMessage": "Удалить инструмент «{name}»? Это действие нельзя отменить.",
-  "workspaceToolImport": "Import tools",
-  "workspaceToolImportJson": "Import JSON",
-  "workspaceToolImportUrl": "Import from URL",
-  "workspaceToolImportUrlTitle": "Import tool from URL",
+  "workspaceToolImport": "Импорт инструментов",
+  "workspaceToolImportJson": "Импорт JSON",
+  "workspaceToolImportUrl": "Импорт по адресу",
+  "workspaceToolImportUrlTitle": "Импорт инструмента по адресу",
   "workspaceToolImportUrlHint": "Enter a raw or GitHub URL to a tool's Python file",
-  "workspaceToolImportUrlLabel": "URL",
-  "workspaceToolImportUrlInvalid": "Enter a valid URL.",
-  "workspaceToolImportUrlFailed": "Couldn't import the tool from that URL.",
+  "workspaceToolImportUrlLabel": "Адрес",
+  "workspaceToolImportUrlInvalid": "Введите корректный адрес.",
+  "workspaceToolImportUrlFailed": "Не удалось импортировать инструмент по этому адресу.",
   "workspaceToolImportUrlLoaded": "Tool loaded — review and save.",
-  "workspaceToolExport": "Export tools",
-  "workspaceToolExportFailed": "Couldn't export tools.",
-  "workspaceToolManifest": "Manifest",
-  "workspaceToolManifestVersion": "Version {version}",
-  "workspaceToolManifestRequiredVersion": "Requires Open WebUI {version}",
-  "workspaceToolManifestFunding": "Funding: {url}",
-  "workspaceToolSpecs": "Generated specifications",
+  "workspaceToolExport": "Экспорт инструментов",
+  "workspaceToolExportFailed": "Не удалось экспортировать инструменты.",
+  "workspaceToolManifest": "Манифест",
+  "workspaceToolManifestVersion": "Версия {version}",
+  "workspaceToolManifestRequiredVersion": "Требуется Open WebUI {version}",
+  "workspaceToolManifestFunding": "Поддержать разработку: {url}",
+  "workspaceToolSpecs": "Сформированные спецификации",
   "workspaceToolDetails": "Сведения об инструменте",
   "workspaceToolFunctionCount": "{count, plural, one{# функция} few{# функции} many{# функций} other{# функции}}",
   "@workspaceToolFunctionCount": {
@@ -3043,22 +3060,22 @@
       }
     }
   },
-  "workspaceToolSpecsEmpty": "No specifications were generated for this tool.",
-  "workspaceToolIncompatible": "This tool requires Open WebUI v{required}, but the server is v{current}. Update the server to save.",
-  "workspaceToolValves": "Valves",
-  "workspaceToolValvesTitle": "Valves",
-  "workspaceToolValvesServer": "Server valves",
-  "workspaceToolValvesUser": "User valves",
-  "workspaceToolValvesEmpty": "No valves",
-  "workspaceToolValvesSaved": "Valves updated",
-  "workspaceToolValvesSaveFailed": "Couldn't update valves.",
-  "workspaceToolValvesLoadFailed": "Couldn't load valves.",
-  "workspaceValveRequired": "required",
-  "workspaceValveDefault": "Default",
-  "workspaceValveCustom": "Custom",
-  "workspaceValveNone": "None",
-  "workspaceValveEnabled": "Enabled",
-  "workspaceValveDisabled": "Disabled",
+  "workspaceToolSpecsEmpty": "Для этого инструмента спецификации не сформированы.",
+  "workspaceToolIncompatible": "Инструмент требует Open WebUI v{required}, а на сервере установлена v{current}. Обновите сервер для сохранения.",
+  "workspaceToolValves": "Параметры",
+  "workspaceToolValvesTitle": "Параметры",
+  "workspaceToolValvesServer": "Параметры сервера",
+  "workspaceToolValvesUser": "Параметры пользователя",
+  "workspaceToolValvesEmpty": "Параметров нет",
+  "workspaceToolValvesSaved": "Параметры обновлены",
+  "workspaceToolValvesSaveFailed": "Не удалось обновить параметры.",
+  "workspaceToolValvesLoadFailed": "Не удалось загрузить параметры.",
+  "workspaceValveRequired": "обязательно",
+  "workspaceValveDefault": "По умолчанию",
+  "workspaceValveCustom": "Собственное значение",
+  "workspaceValveNone": "Нет",
+  "workspaceValveEnabled": "Включено",
+  "workspaceValveDisabled": "Отключено",
   "noteConflictCopyBadge": "Конфликтная копия",
   "noteConflictCopySuffix": " (конфликтная копия)",
   "notificationChannelDescription": "Уведомлять, когда кто-то отправляет сообщение в канал или личные сообщения.",
@@ -3095,11 +3112,17 @@
   "hermesApprovalRequired": "Требуется подтверждение",
   "hermesApprovalFallback": "Агент запрашивает разрешение на продолжение.",
   "openWebUiPromptOther": "Другое",
-  "@openWebUiPromptOther": {"description": "Label for a free-form answer to an Open WebUI ask-user question."},
+  "@openWebUiPromptOther": {
+    "description": "Label for a free-form answer to an Open WebUI ask-user question."
+  },
   "openWebUiPromptAnswerHint": "Введите ответ",
-  "@openWebUiPromptAnswerHint": {"description": "Placeholder for a free-form Open WebUI ask-user answer."},
+  "@openWebUiPromptAnswerHint": {
+    "description": "Placeholder for a free-form Open WebUI ask-user answer."
+  },
   "openWebUiPromptSubmit": "Отправить",
-  "@openWebUiPromptSubmit": {"description": "Action that submits all answers to an Open WebUI ask-user prompt."},
+  "@openWebUiPromptSubmit": {
+    "description": "Action that submits all answers to an Open WebUI ask-user prompt."
+  },
   "hermesApprovalApproved": "Одобрено ✓",
   "hermesApprovalDenied": "Отклонено",
   "hermesApprovalApproveAction": "Одобрить",
@@ -3334,7 +3357,7 @@
   "hermesDashboardSignIn": "Открыть вход в панель",
   "hermesGatewayAccessHeaders": "Заголовки доступа шлюза",
   "hermesGatewayAccessHeadersHelp": "Необязательные заголовки для защищённой панели Hermes.",
-  "hermesDesktopGateway": "Desktop Gateway",
+  "hermesDesktopGateway": "Шлюз Desktop",
   "hermesReloadSkills": "Перезагрузить навыки",
   "hermesNoInstalledSkills": "Нет установленных навыков",
   "hermesMcpServers": "Серверы MCP",
@@ -3434,31 +3457,112 @@
   "hermesSessionDeleteFailed": "Не удалось удалить разговор.",
   "hermesSessionLoadFailed": "Не удалось загрузить этот разговор. Проверьте подключение и повторите попытку.",
   "hermesMemoryKeyFieldLabel": "Ключ памяти",
-  "directMcpServersTitle": "MCP servers", "directMcpEmptyTitle": "No MCP servers yet", "directMcpReachabilityHelp": "Add a Streamable HTTP endpoint that this phone can reach.", "directMcpEditorTitle": "Edit MCP server", "directMcpAddTitle": "Add MCP server", "directMcpName": "Server name", "directMcpEndpoint": "Streamable HTTP endpoint", "directMcpBearerToken": "Bearer token (optional)", "directMcpCustomHeaders": "Custom headers (optional)", "directMcpCustomHeadersHint": "One per line: Name: Value", "directMcpTestConnection": "Test connection", "directMcpTesting": "Testing connection…", "directMcpTestSucceeded": "Connected — {count} tools found.", "directMcpTestFailed": "Could not list tools from this MCP server.", "directMcpSaveFailed": "Could not save this MCP server.", "directMcpLoadFailed": "Could not load MCP servers from secure storage.", "directMcpMissing": "This MCP server no longer exists.", "directMcpCredentialTransferTitle": "Use credentials with new server?", "directMcpCredentialTransferMessage": "This sends the bearer token and custom headers to the new server. Continue only if you trust it. Cancel saves the server without credentials.", "directMcpCredentialTransferConfirm": "Use credentials", "directMcpDeleteTitle": "Delete MCP server?", "directMcpDeleteMessage": "This removes {name} and its credentials from this device.", "directMcpDeleteFailed": "Could not delete this MCP server.", "directMcpAuthMode": "Authentication", "directMcpAuthNone": "None", "directMcpAuthBearer": "Bearer token", "directMcpAuthOAuth": "OAuth", "directMcpOAuthConnect": "Connect in browser", "directMcpOAuthReconnect": "Reconnect in browser", "directMcpOAuthDisconnect": "Disconnect OAuth", "directMcpOAuthPending": "Waiting for authorization in the browser…", "directMcpOAuthConnected": "OAuth connected.", "directMcpOAuthConnectionDetails": "Connected to {issuerHost} · {scopes}", "directMcpOAuthNoScopes": "No scopes reported", "directMcpOAuthConnectFailed": "Could not connect this MCP server with OAuth.", "directMcpOAuthDisconnectFailed": "Could not disconnect OAuth from this MCP server.", "directMcpApprovalTitle": "Tool approval", "directMcpApprovalAllowOnce": "Allow once", "directMcpApprovalAllowSession": "Allow for session", "directMcpApprovalAllowAlways": "Always allow", "directMcpApprovalAlwaysTitle": "Always allow this tool?", "directMcpApprovalAlwaysMessage": "{serverName} will be allowed to run {toolName} without asking again. The approval is revoked automatically if the tool schema changes.", "@directMcpApprovalAlwaysMessage": {"placeholders":{"serverName":{"type":"String"},"toolName":{"type":"String"}}}, "directMcpApprovalSaveFailed": "Could not remember this approval. You can retry or choose another option.", "directMcpApprovalDeny": "Deny", "directMcpApprovalAllowed": "Allowed once", "directMcpApprovalAllowedSession": "Allowed for session", "directMcpApprovalAllowedAlways": "Always allowed", "directMcpApprovalDenied": "Denied", "directMcpApprovalExpired": "Approval expired", "directMcpRememberedApprovalsTitle": "Always allowed tools", "directMcpRememberedApprovalsSubtitle": "These exact tools can run without asking while their server and input schema remain unchanged.", "directMcpRememberedApprovalRevoke": "Revoke", "directMcpRememberedApprovalsRevokeAll": "Revoke all", "directMcpRememberedApprovalRevokeFailed": "Could not revoke the remembered approval."
-  ,"directMcpContentAction": "MCP content"
-  ,"directMcpContentTitle": "MCP content"
-  ,"directMcpContentServer": "MCP server"
-  ,"directMcpContentSearch": "Search prompts and resources"
-  ,"directMcpContentPrompts": "Prompts"
-  ,"directMcpContentResources": "Resources"
-  ,"directMcpContentEmpty": "This server has no prompts or resources."
-  ,"directMcpContentNoMatches": "No matching prompts or resources."
-  ,"directMcpContentLoadFailed": "Could not load content from this MCP server."
-  ,"directMcpContentRefresh": "Refresh MCP content"
-  ,"directMcpContentPreviewTitle": "Preview"
-  ,"directMcpContentInsert": "Insert"
-  ,"directMcpContentPromptHeading": "MCP prompt from {serverName}: {promptName}"
-  ,"@directMcpContentPromptHeading": {"placeholders":{"serverName":{"type":"String"},"promptName":{"type":"String"}}}
-  ,"directMcpContentResourceHeading": "MCP resource from {serverName}: {resourceUri}"
-  ,"@directMcpContentResourceHeading": {"placeholders":{"serverName":{"type":"String"},"resourceUri":{"type":"String"}}}
-  ,"directMcpContentRoleUser": "User"
-  ,"directMcpContentRoleAssistant": "Assistant"
-  ,"directMcpContentRequestFailed": "Could not load this MCP content. Try again."
-  ,"directMcpContentUnsupported": "This item is binary or unsupported. Choose a text prompt or text resource."
-  ,"directMcpContentChanged": "This item changed on the server. Refresh and choose it again."
-  ,"directMcpContentTooLarge": "This content is too large to insert."
-  ,"directMcpContentComposerTooLarge": "The draft and this content exceed the 256 KiB message limit. Shorten the draft or content and try again."
-  ,"directMcpContentLoading": "Loading MCP content…",
+  "directMcpServersTitle": "Серверы MCP",
+  "directMcpEmptyTitle": "Серверов MCP пока нет",
+  "directMcpReachabilityHelp": "Добавьте адрес Streamable HTTP, доступный с этого телефона.",
+  "directMcpEditorTitle": "Редактирование сервера MCP",
+  "directMcpAddTitle": "Добавление сервера MCP",
+  "directMcpName": "Название сервера",
+  "directMcpEndpoint": "Адрес Streamable HTTP",
+  "directMcpBearerToken": "Токен Bearer (необязательно)",
+  "directMcpCustomHeaders": "Собственные заголовки (необязательно)",
+  "directMcpCustomHeadersHint": "По одному на строку: Имя: Значение",
+  "directMcpTestConnection": "Проверить подключение",
+  "directMcpTesting": "Проверка подключения…",
+  "directMcpTestSucceeded": "Connected — {count} tools found.",
+  "directMcpTestFailed": "Не удалось получить список инструментов с этого сервера MCP.",
+  "directMcpSaveFailed": "Не удалось сохранить сервер MCP.",
+  "directMcpLoadFailed": "Не удалось загрузить серверы MCP из защищённого хранилища.",
+  "directMcpMissing": "Этот сервер MCP больше не существует.",
+  "directMcpCredentialTransferTitle": "Использовать учётные данные с новым сервером?",
+  "directMcpCredentialTransferMessage": "Токен Bearer и собственные заголовки будут переданы новому серверу. Продолжайте, только если доверяете ему. При отмене сервер сохранится без учётных данных.",
+  "directMcpCredentialTransferConfirm": "Использовать учётные данные",
+  "directMcpDeleteTitle": "Удалить сервер MCP?",
+  "directMcpDeleteMessage": "Сервер {name} и его учётные данные будут удалены с этого устройства.",
+  "directMcpDeleteFailed": "Не удалось удалить сервер MCP.",
+  "directMcpAuthMode": "Аутентификация",
+  "directMcpAuthNone": "Нет",
+  "directMcpAuthBearer": "Токен Bearer",
+  "directMcpAuthOAuth": "OAuth",
+  "directMcpOAuthConnect": "Подключиться через браузер",
+  "directMcpOAuthReconnect": "Подключиться повторно через браузер",
+  "directMcpOAuthDisconnect": "Отключить OAuth",
+  "directMcpOAuthPending": "Ожидание авторизации в браузере…",
+  "directMcpOAuthConnected": "OAuth подключён.",
+  "directMcpOAuthConnectionDetails": "Подключено к {issuerHost} · {scopes}",
+  "directMcpOAuthNoScopes": "Разрешения не указаны",
+  "directMcpOAuthConnectFailed": "Не удалось подключить сервер MCP через OAuth.",
+  "directMcpOAuthDisconnectFailed": "Не удалось отключить OAuth для этого сервера MCP.",
+  "directMcpApprovalTitle": "Разрешение на запуск инструмента",
+  "directMcpApprovalAllowOnce": "Разрешить один раз",
+  "directMcpApprovalAllowSession": "Разрешить на время сеанса",
+  "directMcpApprovalAllowAlways": "Разрешать всегда",
+  "directMcpApprovalAlwaysTitle": "Всегда разрешать этот инструмент?",
+  "directMcpApprovalAlwaysMessage": "Сервер {serverName} сможет запускать {toolName} без повторного запроса. Разрешение автоматически отзывается при изменении схемы инструмента.",
+  "@directMcpApprovalAlwaysMessage": {
+    "placeholders": {
+      "serverName": {
+        "type": "String"
+      },
+      "toolName": {
+        "type": "String"
+      }
+    }
+  },
+  "directMcpApprovalSaveFailed": "Не удалось сохранить разрешение. Повторите попытку или выберите другой вариант.",
+  "directMcpApprovalDeny": "Запретить",
+  "directMcpApprovalAllowed": "Разрешено один раз",
+  "directMcpApprovalAllowedSession": "Разрешено на время сеанса",
+  "directMcpApprovalAllowedAlways": "Всегда разрешено",
+  "directMcpApprovalDenied": "Запрещено",
+  "directMcpApprovalExpired": "Срок разрешения истёк",
+  "directMcpRememberedApprovalsTitle": "Всегда разрешённые инструменты",
+  "directMcpRememberedApprovalsSubtitle": "Эти инструменты могут запускаться без запроса, пока их сервер и схема входных данных не изменятся.",
+  "directMcpRememberedApprovalRevoke": "Отозвать",
+  "directMcpRememberedApprovalsRevokeAll": "Отозвать все",
+  "directMcpRememberedApprovalRevokeFailed": "Не удалось отозвать сохранённое разрешение.",
+  "directMcpContentAction": "Содержимое MCP",
+  "directMcpContentTitle": "Содержимое MCP",
+  "directMcpContentServer": "Сервер MCP",
+  "directMcpContentSearch": "Поиск промптов и ресурсов",
+  "directMcpContentPrompts": "Промпты",
+  "directMcpContentResources": "Ресурсы",
+  "directMcpContentEmpty": "На этом сервере нет промптов и ресурсов.",
+  "directMcpContentNoMatches": "Подходящие промпты и ресурсы не найдены.",
+  "directMcpContentLoadFailed": "Не удалось загрузить содержимое с этого сервера MCP.",
+  "directMcpContentRefresh": "Обновить содержимое MCP",
+  "directMcpContentPreviewTitle": "Предпросмотр",
+  "directMcpContentInsert": "Вставить",
+  "directMcpContentPromptHeading": "Промпт MCP с сервера {serverName}: {promptName}",
+  "@directMcpContentPromptHeading": {
+    "placeholders": {
+      "serverName": {
+        "type": "String"
+      },
+      "promptName": {
+        "type": "String"
+      }
+    }
+  },
+  "directMcpContentResourceHeading": "Ресурс MCP с сервера {serverName}: {resourceUri}",
+  "@directMcpContentResourceHeading": {
+    "placeholders": {
+      "serverName": {
+        "type": "String"
+      },
+      "resourceUri": {
+        "type": "String"
+      }
+    }
+  },
+  "directMcpContentRoleUser": "Пользователь",
+  "directMcpContentRoleAssistant": "Ассистент",
+  "directMcpContentRequestFailed": "Не удалось загрузить содержимое MCP. Повторите попытку.",
+  "directMcpContentUnsupported": "Элемент содержит двоичные данные или не поддерживается. Выберите текстовый промпт или ресурс.",
+  "directMcpContentChanged": "Элемент изменился на сервере. Обновите список и выберите его заново.",
+  "directMcpContentTooLarge": "Содержимое слишком велико для вставки.",
+  "directMcpContentComposerTooLarge": "Черновик вместе с этим содержимым превышает лимит сообщения 256 КиБ. Сократите текст и повторите попытку.",
+  "directMcpContentLoading": "Загрузка содержимого MCP…",
   "reasoningEffortLight": "Низкий",
   "reasoningEffortModerate": "Средний",
   "reasoningEffortDeep": "Высокий",
@@ -3484,9 +3588,9 @@
   "directContextCompactionTitle": "Сжатие контекста",
   "directContextCompactionDescription": "Эти модели не сообщают размер контекста. Conduit использует выбранный лимит для сжатия старых сообщений.",
   "directContextCompactionPickerDescription": "Выберите размер контекста, который Conduit должен использовать для автоматического сжатия.",
-  "directMcpInsecureCredentialsTitle": "Send credentials without encryption?",
-  "directMcpInsecureCredentialsMessage": "This server uses unencrypted HTTP. Your bearer token, OAuth token, and custom headers could be read or changed on the network.",
-  "directMcpInsecureCredentialsConfirm": "Send without encryption",
+  "directMcpInsecureCredentialsTitle": "Передать учётные данные без шифрования?",
+  "directMcpInsecureCredentialsMessage": "Сервер использует HTTP без шифрования. Токены Bearer и OAuth, а также собственные заголовки могут быть прочитаны или изменены в сети.",
+  "directMcpInsecureCredentialsConfirm": "Передать без шифрования",
   "hermesSessionTooLarge": "Этот разговор слишком большой, чтобы загрузить его на этом устройстве.",
   "hermesSessionNotFound": "Этот разговор больше недоступен на сервере Hermes.",
   "hermesSessionLoadFailedDetail": "Не удалось загрузить этот разговор: {detail}",
@@ -3515,7 +3619,7 @@
   "notificationTargetEditTitle": "Изменить адрес",
   "notificationTargetNameLabel": "Название (необязательно)",
   "notificationTargetNameHint": "например, team-chat",
-  "notificationTargetUrlLabel": "Webhook URL",
+  "notificationTargetUrlLabel": "Адрес вебхука",
   "notificationTargetUrlHint": "https://example.com/webhook",
   "notificationTargetUrlKeepHint": "Оставьте пустым, чтобы сохранить текущий URL",
   "notificationTargetUrlRequired": "Введите URL webhook.",
@@ -3533,14 +3637,28 @@
   "notificationTargetTestFailed": "Не удалось доставить тестовое уведомление.",
   "notificationTargetDelete": "Удалить адрес",
   "notificationTargetDeleteConfirm": "Удалить «{name}»? Сервер перестанет отправлять на него уведомления.",
-  "@notificationTargetDeleteConfirm": {"placeholders":{"name":{"type":"String"}}},
+  "@notificationTargetDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "notificationSystemSettingsTitle": "Системные настройки уведомлений",
   "proxyAuthSignInAgain": "Войти через прокси ещё раз",
   "readOnly": "Только чтение",
   "readOnlySharedChat": "Этим чатом поделились с вами. Отправлять сообщения может только владелец.",
   "sharedBadge": "Общий",
   "sharedFolderOwner": "Поделился {name}",
-  "@sharedFolderOwner": {"description": "Owner label on a folder another user shared with this account.", "placeholders": {"name": {"type": "String", "example": "Alex"}}},
+  "@sharedFolderOwner": {
+    "description": "Owner label on a folder another user shared with this account.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Alex"
+      }
+    }
+  },
   "transcribingAudio": "Расшифровка...",
   "chatTaskProgress": "Задачи: выполнено {completed} из {total}",
   "@chatTaskProgress": {
@@ -3560,7 +3678,14 @@
   "chatTaskCancelled": "Отменено",
   "webSearchSettingsFooterAuto": "Используется моделями Direct без собственного веб-поиска. Поиск выполняется с этого устройства: запросы отправляются в DuckDuckGo, а если он не отвечает — в Brave, Bing, Mojeek или Википедию. Страницы, которые читает модель, тоже загружаются с этого устройства.",
   "webSearchSettingsFooterEngine": "Используется моделями Direct без собственного веб-поиска. Поиск выполняется с этого устройства, а запросы отправляются только в {engine}. Страницы, которые читает модель, тоже загружаются с этого устройства.",
-  "@webSearchSettingsFooterEngine": {"placeholders": {"engine": {"type": "String", "example": "DuckDuckGo"}}},
+  "@webSearchSettingsFooterEngine": {
+    "placeholders": {
+      "engine": {
+        "type": "String",
+        "example": "DuckDuckGo"
+      }
+    }
+  },
   "webSearchEngineLabel": "Поисковая система",
   "webSearchEngineAuto": "Автоматически",
   "webSearchSafeSearchLabel": "Безопасный поиск",
@@ -3572,9 +3697,27 @@
   "webSearchRegionWorldwide": "Весь мир",
   "directModelToolsUnsupported": "Эта модель не умеет использовать инструменты, поэтому не может искать в интернете. Отключите веб-поиск и все инструменты, затем повторите попытку.",
   "directContextCompactionModelCount": "{count, plural, one{{count} модель} few{{count} модели} many{{count} моделей} other{{count} модели}}",
-  "@directContextCompactionModelCount": {"placeholders": {"count": {"type": "int", "example": "42"}}},
+  "@directContextCompactionModelCount": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "42"
+      }
+    }
+  },
   "imageViewerPosition": "{current} из {total}",
-  "@imageViewerPosition": {"placeholders": {"current": {"type": "int", "example": "2"}, "total": {"type": "int", "example": "5"}}},
+  "@imageViewerPosition": {
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "2"
+      },
+      "total": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "saveImage": "Сохранить изображение",
   "imageSaved": "Изображение сохранено",
   "imageSaveFailed": "Не удалось сохранить изображение.",
@@ -3591,11 +3734,17 @@
   },
   "askConduitAction": "Спросите Conduit",
   "voiceCallStartTimeout": "Запуск голосового вызова занял слишком много времени. Попробуйте ещё раз.",
-  "@voiceCallStartTimeout": {"description": "Error shown when starting a voice call takes too long."},
+  "@voiceCallStartTimeout": {
+    "description": "Error shown when starting a voice call takes too long."
+  },
   "voiceCallNoSpeech": "Речь не обнаружена.",
-  "@voiceCallNoSpeech": {"description": "Message shown when the voice call heard no speech for several tries."},
+  "@voiceCallNoSpeech": {
+    "description": "Message shown when the voice call heard no speech for several tries."
+  },
   "voiceCallFailed": "Не удалось продолжить голосовой вызов.",
-  "@voiceCallFailed": {"description": "Generic error shown when a voice call fails for a reason with no specific message."},
+  "@voiceCallFailed": {
+    "description": "Generic error shown when a voice call fails for a reason with no specific message."
+  },
   "personalToolSettings": "Настройки инструментов",
   "personalToolSettingsDescription": "Ваши личные параметры для выбранных инструментов и модели.",
   "personalToolSettingsYours": "Ваши настройки",
@@ -3630,7 +3779,15 @@
   "channelMembersAdd": "Добавить участников",
   "channelMembersAddConfirm": "Добавить",
   "channelMembersRemoveMember": "Удалить: {name}",
-  "@channelMembersRemoveMember": {"description": "Accessibility label for the button that removes one person from the channel.", "placeholders": {"name": {"type": "String", "example": "Alex"}}},
+  "@channelMembersRemoveMember": {
+    "description": "Accessibility label for the button that removes one person from the channel.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Alex"
+      }
+    }
+  },
   "channelMembersChangeFailed": "Не удалось обновить список участников. Повторите попытку.",
   "channelMembersChangeDenied": "Сервер не разрешил это изменение.",
   "channelMembersChangeNotPermitted": "У вас нет прав управлять участниками этого канала.",
@@ -3701,8 +3858,20 @@
   "folderProjectReadOnly": "Эта общая папка доступна только для чтения, поэтому её настройки проекта нельзя изменить.",
   "folderProjectGone": "Эта папка больше недоступна.",
   "folderProjectModelFallbackNotice": "Модель этой папки по умолчанию недоступна, поэтому используется ваша модель по умолчанию.",
-  "@folderProjectMoveUp": {"placeholders": {"name": {"type": "String"}}},
-  "@folderProjectRemove": {"placeholders": {"name": {"type": "String"}}},
+  "@folderProjectMoveUp": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@folderProjectRemove": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTasksTitle": "Запланированные задачи",
   "scheduledTasksDescription": "Ваш сервер Open WebUI выполняет эти задачи по собственному расписанию, даже когда этот телефон не в сети.",
   "scheduledTasksUnavailable": "Запланированные задачи недоступны для этого аккаунта на этом сервере.",
@@ -3721,20 +3890,53 @@
   "scheduledTaskStatusActive": "Активна",
   "scheduledTaskStatusPaused": "Приостановлена",
   "scheduledTaskNextRun": "Следующий запуск: {time}",
-  "@scheduledTaskNextRun": {"placeholders": {"time": {"type": "String"}}},
+  "@scheduledTaskNextRun": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskNoNextRun": "Предстоящих запусков нет",
   "scheduledTaskLastRun": "Последний запуск: {time}",
-  "@scheduledTaskLastRun": {"placeholders": {"time": {"type": "String"}}},
+  "@scheduledTaskLastRun": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskNeverRun": "Ещё не запускалась",
   "scheduledTaskScheduleOnce": "Один раз",
   "scheduledTaskScheduleDaily": "Ежедневно",
   "scheduledTaskScheduleWeekly": "Еженедельно",
   "scheduledTaskScheduleOnceSummary": "Один раз, {date}",
-  "@scheduledTaskScheduleOnceSummary": {"placeholders": {"date": {"type": "String"}}},
+  "@scheduledTaskScheduleOnceSummary": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskScheduleDailySummary": "Ежедневно в {time}",
-  "@scheduledTaskScheduleDailySummary": {"placeholders": {"time": {"type": "String"}}},
+  "@scheduledTaskScheduleDailySummary": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskScheduleWeeklySummary": "{days} в {time}",
-  "@scheduledTaskScheduleWeeklySummary": {"placeholders": {"days": {"type": "String"}, "time": {"type": "String"}}},
+  "@scheduledTaskScheduleWeeklySummary": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskScheduleCustom": "Своё расписание",
   "scheduledTaskNewTitle": "Новая запланированная задача",
   "scheduledTaskEditTitle": "Изменить запланированную задачу",
@@ -3744,7 +3946,13 @@
   "scheduledTaskModelLabel": "Модель",
   "scheduledTaskModelChoose": "Выберите модель",
   "scheduledTaskModelUnavailable": "{id} (больше недоступна)",
-  "@scheduledTaskModelUnavailable": {"placeholders": {"id": {"type": "String"}}},
+  "@scheduledTaskModelUnavailable": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskScheduleLabel": "Расписание",
   "scheduledTaskTimeLabel": "Время",
   "scheduledTaskDateLabel": "Дата",
@@ -3786,7 +3994,13 @@
   "scheduledTaskOpenResultFailed": "Не удалось открыть этот результат.",
   "scheduledTaskDelete": "Удалить задачу",
   "scheduledTaskDeleteConfirm": "Задача «{name}» больше не будет выполняться на сервере, а её история запусков будет удалена.",
-  "@scheduledTaskDeleteConfirm": {"placeholders": {"name": {"type": "String"}}},
+  "@scheduledTaskDeleteConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "scheduledTaskChangeFailed": "Не удалось изменить эту задачу.",
   "scheduledTaskTerminalKept": "К этой задаче подключён терминал. При редактировании он сохраняется.",
   "scheduledTaskPromptSection": "Инструкции",
@@ -3799,12 +4013,27 @@
   "queuedDraftFileFailed": "Файл не загрузился. Повторите попытку или удалите его.",
   "queuedDraftsSendFailed": "Не удалось отправить сообщения из очереди. Они остаются в очереди.",
   "queuedDraftsSending": "Отправка сообщений из очереди…",
-  "@queuedDraftsCount": {"placeholders": {"count": {"type": "int"}}},
+  "@queuedDraftsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "calendarTitle": "Календарь",
   "calendarUnavailable": "Календарь недоступен для этого аккаунта на этом сервере.",
   "calendarTimezoneNote": "Время показывается в часовом поясе этого устройства.",
   "calendarRangeLabel": "{start} – {end}",
-  "@calendarRangeLabel": {"placeholders": {"start": {"type": "String"}, "end": {"type": "String"}}},
+  "@calendarRangeLabel": {
+    "placeholders": {
+      "start": {
+        "type": "String"
+      },
+      "end": {
+        "type": "String"
+      }
+    }
+  },
   "calendarToday": "Сегодня",
   "calendarEmpty": "В этом периоде нет событий.",
   "calendarLoadFailed": "Не удалось загрузить календарь.",
@@ -3831,9 +4060,21 @@
   "calendarEventDelete": "Удалить",
   "calendarEventDeleteSeries": "Удалить серию",
   "calendarEventDeleteConfirm": "Удалить «{title}»? Это действие нельзя отменить.",
-  "@calendarEventDeleteConfirm": {"placeholders": {"title": {"type": "String"}}},
+  "@calendarEventDeleteConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "calendarEventDeleteSeriesConfirm": "Удалить «{title}» и все его повторения? Это действие нельзя отменить.",
-  "@calendarEventDeleteSeriesConfirm": {"placeholders": {"title": {"type": "String"}}},
+  "@calendarEventDeleteSeriesConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "calendarEventDeleteFailed": "Не удалось удалить это событие.",
   "calendarEventLoadFailed": "Не удалось открыть это событие для редактирования.",
   "calendarEventReadOnly": "Вы не можете изменить это событие. Ответить на приглашение по-прежнему можно.",
@@ -3866,7 +4107,13 @@
   "calendarAddPeople": "Добавить участников",
   "calendarInvitedPerson": "Приглашённый участник",
   "calendarRemovePerson": "Удалить: {name}",
-  "@calendarRemovePerson": {"placeholders": {"name": {"type": "String"}}},
+  "@calendarRemovePerson": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "calendarAttendeesNote": "Приглашённые отвечают сами за себя. Их ответы сохраняются при изменении списка.",
   "calendarNoWritableCalendar": "У вас нет календаря, в который можно добавлять события. Создайте календарь, чтобы продолжить.",
   "calendarTitleRequired": "Введите название.",
@@ -4078,41 +4325,61 @@
   "chatCompareErrorUnavailable": "Сравнение моделей недоступно в этом чате.",
   "chatCompareErrorModelUnavailable": "{count, plural, =1{Модель {models} недоступна на этом сервере.} other{Модели {models} недоступны на этом сервере.}}",
   "@chatCompareErrorModelUnavailable": {
+    "description": "Shown when a chosen model is not on the server's model list. models is the model name or names; count is how many models it names.",
     "placeholders": {
       "models": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
   "chatCompareErrorVision": "{count, plural, =1{Модель {models} не умеет читать изображения. Удалите изображение или выберите другую модель.} other{Модели {models} не умеют читать изображения. Удалите изображение или выберите другие модели.}}",
   "@chatCompareErrorVision": {
+    "description": "Shown when the message has an image and a chosen model cannot read images. models is the model name or names; count is how many models it names.",
     "placeholders": {
       "models": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
   "chatCompareErrorTerminal": "{count, plural, =1{Модель {models} не может использовать выбранный терминал. Отключите терминал или выберите другую модель.} other{Модели {models} не могут использовать выбранный терминал. Отключите терминал или выберите другие модели.}}",
   "@chatCompareErrorTerminal": {
+    "description": "Shown when a terminal is selected and a chosen model cannot use it. models is the model name or names; count is how many models it names.",
     "placeholders": {
       "models": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
   "chatCompareErrorInterpreter": "{count, plural, =1{Модель {models} не может запускать интерпретатор кода. Отключите его или выберите другую модель.} other{Модели {models} не могут запускать интерпретатор кода. Отключите его или выберите другие модели.}}",
   "@chatCompareErrorInterpreter": {
+    "description": "Shown when the code interpreter is on and a chosen model cannot run it. models is the model name or names; count is how many models it names.",
     "placeholders": {
       "models": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
   "chatCompareErrorEffortOverride": "{count, plural, =1{В этом чате сохранён уровень рассуждений, который модель {models} не может использовать. Удалите его в настройках чата или выберите другую модель.} other{В этом чате сохранён уровень рассуждений, который модели {models} не могут использовать. Удалите его в настройках чата или выберите другие модели.}}",
   "@chatCompareErrorEffortOverride": {
+    "description": "Shown when the chat saves a reasoning effort that a chosen model cannot use, since one request sends the same setting to every model. models is the model name or names; count is how many models it names.",
     "placeholders": {
       "models": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
@@ -4279,5 +4546,887 @@
   "accountsRemoveAddressMessage": "Conduit перестанет пробовать этот адрес. Вход в ваши аккаунты сохранится.",
   "accountsAddressConfirmTitle": "Проверить этот адрес?",
   "accountsAddressConfirmMessage": "Чтобы убедиться, что {host} — это тот же сервер, Conduit отправит туда сеанс аккаунта, сохранённого на этом устройстве. Продолжайте, только если доверяете этому адресу.",
-  "accountsAddressConfirmAction": "Проверить адрес"
+  "accountsAddressConfirmAction": "Проверить адрес",
+  "@ok": {
+    "description": "Generic OK button label."
+  },
+  "@notificationTargetUrlLabel": {
+    "description": "Label of the field for the URL that receives webhook notifications."
+  },
+  "@chatSettingSeed": {
+    "description": "Label of the random seed model parameter."
+  },
+  "@workspaceToolCreateTitle": {
+    "description": "Title of the workspace tool create editor."
+  },
+  "@workspaceToolName": {
+    "description": "Label for the tool name field."
+  },
+  "@workspaceToolNameHint": {
+    "description": "Placeholder for the tool name field."
+  },
+  "@workspaceToolNameRequired": {
+    "description": "Validation error when the tool name is empty."
+  },
+  "@workspaceToolId": {
+    "description": "Label for the tool ID field."
+  },
+  "@workspaceToolIdHint": {
+    "description": "Helper text describing the allowed format of a tool ID."
+  },
+  "@workspaceToolIdRequired": {
+    "description": "Validation error when the tool ID is empty."
+  },
+  "@workspaceToolIdInvalid": {
+    "description": "Validation error when the tool ID is not a valid identifier."
+  },
+  "@workspaceToolIdTaken": {
+    "description": "Error shown when the chosen tool ID already exists on the server."
+  },
+  "@workspaceToolDescription": {
+    "description": "Label for the tool description field."
+  },
+  "@workspaceToolDescriptionHint": {
+    "description": "Placeholder for the tool description field."
+  },
+  "@workspaceToolContent": {
+    "description": "Label for the tool Python source editor."
+  },
+  "@workspaceToolContentHint": {
+    "description": "Placeholder for the empty tool Python source editor."
+  },
+  "@workspaceToolContentRequired": {
+    "description": "Validation error when the tool source is empty."
+  },
+  "@workspaceToolSaved": {
+    "description": "Confirmation that a tool was saved."
+  },
+  "@workspaceToolDeleted": {
+    "description": "Confirmation that a tool was deleted."
+  },
+  "@workspaceToolSaveFailed": {
+    "description": "Error shown when saving a tool fails."
+  },
+  "@workspaceToolManageAccess": {
+    "description": "Action that opens the tool access-control sheet."
+  },
+  "@workspaceToolClone": {
+    "description": "Overflow action that clones a tool."
+  },
+  "@workspaceToolCloneSuffix": {
+    "description": "Suffix appended to the name of a cloned tool."
+  },
+  "@workspaceToolDelete": {
+    "description": "Overflow action that deletes a tool."
+  },
+  "@workspaceToolImport": {
+    "description": "Title of the tool JSON import sheet."
+  },
+  "@workspaceToolImportJson": {
+    "description": "Overflow action that imports tools from a JSON file."
+  },
+  "@workspaceToolImportUrl": {
+    "description": "Overflow action, admin-only, that imports a tool from a URL."
+  },
+  "@workspaceToolImportUrlTitle": {
+    "description": "Title of the tool URL import sheet."
+  },
+  "@workspaceToolImportUrlLabel": {
+    "description": "Label above the tool URL import field."
+  },
+  "@workspaceToolImportUrlInvalid": {
+    "description": "Validation error when the import URL is invalid."
+  },
+  "@workspaceToolImportUrlFailed": {
+    "description": "Error shown when a tool URL import fails."
+  },
+  "@workspaceToolExport": {
+    "description": "Overflow action that exports tools as JSON."
+  },
+  "@workspaceToolExportFailed": {
+    "description": "Error shown when exporting tools fails."
+  },
+  "@workspaceToolManifest": {
+    "description": "Heading for the server-generated tool manifest summary."
+  },
+  "@workspaceToolManifestVersion": {
+    "description": "Displays the tool's manifest version.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@workspaceToolManifestRequiredVersion": {
+    "description": "Displays the Open WebUI version a tool requires.",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@workspaceToolManifestFunding": {
+    "description": "Displays the tool's funding URL from its manifest.",
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "@workspaceToolSpecs": {
+    "description": "Heading for the read-only server-generated tool function specifications."
+  },
+  "@workspaceToolSpecsEmpty": {
+    "description": "Empty state when a tool produced no function specifications."
+  },
+  "@workspaceToolIncompatible": {
+    "description": "Warning shown when a tool's required Open WebUI version is newer than the connected server.",
+    "placeholders": {
+      "required": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "@workspaceToolValves": {
+    "description": "Overflow action that opens the tool valves editor."
+  },
+  "@workspaceToolValvesTitle": {
+    "description": "Title of the tool valves sheet."
+  },
+  "@workspaceToolValvesServer": {
+    "description": "Tab label for tool-wide server valves."
+  },
+  "@workspaceToolValvesUser": {
+    "description": "Tab label for the current user's tool valves."
+  },
+  "@workspaceToolValvesEmpty": {
+    "description": "Empty state when a tool defines no valves."
+  },
+  "@workspaceToolValvesSaved": {
+    "description": "Confirmation that tool valves were saved."
+  },
+  "@workspaceToolValvesSaveFailed": {
+    "description": "Error shown when saving tool valves fails."
+  },
+  "@workspaceToolValvesLoadFailed": {
+    "description": "Error shown when loading tool valves fails."
+  },
+  "@workspaceValveRequired": {
+    "description": "Marker shown next to a required valve field."
+  },
+  "@workspaceValveDefault": {
+    "description": "Toggle label indicating a valve uses its server default value."
+  },
+  "@workspaceValveCustom": {
+    "description": "Toggle label indicating a valve uses a custom value."
+  },
+  "@workspaceValveNone": {
+    "description": "Toggle label for a required valve left unset."
+  },
+  "@workspaceValveEnabled": {
+    "description": "State label for a boolean valve that is on."
+  },
+  "@workspaceValveDisabled": {
+    "description": "State label for a boolean valve that is off."
+  },
+  "@hermesDesktopGateway": {
+    "description": "Section title for Hermes Desktop Gateway settings."
+  },
+  "@directMcpServersTitle": {
+    "description": "Section title for Streamable HTTP MCP tool servers used by Direct models."
+  },
+  "@directMcpEmptyTitle": {
+    "description": "Empty-state title when no Direct MCP servers are configured."
+  },
+  "@directMcpReachabilityHelp": {
+    "description": "Explains the network reachability requirement for Direct MCP servers."
+  },
+  "@directMcpEditorTitle": {
+    "description": "Title for editing a Direct MCP server."
+  },
+  "@directMcpAddTitle": {
+    "description": "Title for adding a Direct MCP server."
+  },
+  "@directMcpName": {
+    "description": "Field label for an MCP server display name."
+  },
+  "@directMcpEndpoint": {
+    "description": "Field label for an MCP Streamable HTTP URL."
+  },
+  "@directMcpBearerToken": {
+    "description": "Field label for an optional MCP bearer token."
+  },
+  "@directMcpCustomHeaders": {
+    "description": "Field label for optional MCP HTTP headers."
+  },
+  "@directMcpCustomHeadersHint": {
+    "description": "Input hint showing the MCP custom-header format."
+  },
+  "@directMcpTestConnection": {
+    "description": "Button that lists tools from an MCP server without saving it."
+  },
+  "@directMcpTesting": {
+    "description": "Progress message while testing an MCP server."
+  },
+  "@directMcpTestFailed": {
+    "description": "Error shown when an MCP connection test fails."
+  },
+  "@directMcpSaveFailed": {
+    "description": "Error shown when an MCP server cannot be saved."
+  },
+  "@directMcpLoadFailed": {
+    "description": "Error shown when Direct MCP server configuration cannot be loaded."
+  },
+  "@directMcpMissing": {
+    "description": "Message shown when an MCP server was removed while its editor was open."
+  },
+  "@directMcpCredentialTransferTitle": {
+    "description": "Title before sending MCP credentials to a changed endpoint."
+  },
+  "@directMcpCredentialTransferMessage": {
+    "description": "Security warning before transferring MCP credentials to a changed endpoint."
+  },
+  "@directMcpCredentialTransferConfirm": {
+    "description": "Action confirming MCP credentials may be used at a changed endpoint."
+  },
+  "@directMcpDeleteTitle": {
+    "description": "Title for the MCP server deletion confirmation."
+  },
+  "@directMcpDeleteMessage": {
+    "description": "Confirmation message before deleting an MCP server.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@directMcpDeleteFailed": {
+    "description": "Error shown when an MCP server cannot be deleted."
+  },
+  "@directMcpAuthMode": {
+    "description": "Field label for selecting an MCP server authentication mode."
+  },
+  "@directMcpAuthNone": {
+    "description": "MCP authentication option with no credentials."
+  },
+  "@directMcpAuthBearer": {
+    "description": "MCP authentication option using a manually entered bearer token."
+  },
+  "@directMcpOAuthConnect": {
+    "description": "Action that starts an MCP OAuth connection in the system browser."
+  },
+  "@directMcpOAuthReconnect": {
+    "description": "Action that replaces an existing MCP OAuth connection."
+  },
+  "@directMcpOAuthDisconnect": {
+    "description": "Action that deletes OAuth tokens for an MCP server."
+  },
+  "@directMcpOAuthPending": {
+    "description": "Status while an MCP OAuth browser flow is pending."
+  },
+  "@directMcpOAuthConnected": {
+    "description": "Status shown after an MCP OAuth flow succeeds."
+  },
+  "@directMcpOAuthConnectionDetails": {
+    "description": "Secret-free summary of an MCP OAuth connection.",
+    "placeholders": {
+      "issuerHost": {
+        "type": "String"
+      },
+      "scopes": {
+        "type": "String"
+      }
+    }
+  },
+  "@directMcpOAuthNoScopes": {
+    "description": "Fallback when an OAuth server does not report granted scopes."
+  },
+  "@directMcpOAuthConnectFailed": {
+    "description": "Generic sanitized failure for an MCP OAuth connection."
+  },
+  "@directMcpOAuthDisconnectFailed": {
+    "description": "Failure shown when MCP OAuth tokens cannot be deleted."
+  },
+  "@directMcpApprovalTitle": {
+    "description": "Title of a Direct MCP allow-once approval card."
+  },
+  "@directMcpApprovalAllowOnce": {
+    "description": "Action permitting one Direct MCP tool call."
+  },
+  "@directMcpApprovalAllowSession": {
+    "description": "Action permitting an exact Direct MCP tool for the current app session."
+  },
+  "@directMcpApprovalAllowAlways": {
+    "description": "Action remembering an exact Direct MCP tool approval."
+  },
+  "@directMcpApprovalAlwaysTitle": {
+    "description": "Confirmation title before remembering a Direct MCP tool approval."
+  },
+  "@directMcpApprovalSaveFailed": {
+    "description": "Safe error shown when a remembered Direct MCP tool approval cannot be persisted."
+  },
+  "@directMcpApprovalDeny": {
+    "description": "Action denying one Direct MCP tool call."
+  },
+  "@directMcpApprovalAllowed": {
+    "description": "Resolved status for an allowed Direct MCP tool call."
+  },
+  "@directMcpApprovalAllowedSession": {
+    "description": "Resolved status for a session-approved Direct MCP tool call."
+  },
+  "@directMcpApprovalAllowedAlways": {
+    "description": "Resolved status for a remembered Direct MCP tool call."
+  },
+  "@directMcpApprovalDenied": {
+    "description": "Resolved status for a denied Direct MCP tool call."
+  },
+  "@directMcpApprovalExpired": {
+    "description": "Status for a restored Direct MCP approval with no live run."
+  },
+  "@directMcpRememberedApprovalsTitle": {
+    "description": "Section title for persistent Direct MCP tool approvals."
+  },
+  "@directMcpRememberedApprovalsSubtitle": {
+    "description": "Security explanation for persistent Direct MCP tool approvals."
+  },
+  "@directMcpRememberedApprovalRevoke": {
+    "description": "Action revoking one persistent Direct MCP tool approval."
+  },
+  "@directMcpRememberedApprovalsRevokeAll": {
+    "description": "Action revoking every persistent Direct MCP tool approval for one server."
+  },
+  "@directMcpRememberedApprovalRevokeFailed": {
+    "description": "Safe error shown when a remembered Direct MCP approval cannot be revoked."
+  },
+  "@directMcpContentAction": {
+    "description": "Direct composer action for browsing MCP prompts and resources."
+  },
+  "@directMcpContentTitle": {
+    "description": "Title of the Direct MCP prompt and resource picker."
+  },
+  "@directMcpContentServer": {
+    "description": "Label for the MCP content server selector."
+  },
+  "@directMcpContentSearch": {
+    "description": "Placeholder and accessibility label for MCP content search."
+  },
+  "@directMcpContentPrompts": {
+    "description": "Section label for MCP prompts."
+  },
+  "@directMcpContentResources": {
+    "description": "Section label for MCP resources."
+  },
+  "@directMcpContentEmpty": {
+    "description": "Empty state for an MCP server with no prompt or resource inventory."
+  },
+  "@directMcpContentNoMatches": {
+    "description": "Empty search result for MCP content."
+  },
+  "@directMcpContentLoadFailed": {
+    "description": "Sanitized MCP content inventory load failure."
+  },
+  "@directMcpContentRefresh": {
+    "description": "Tooltip and accessibility label for refreshing MCP content."
+  },
+  "@directMcpContentPreviewTitle": {
+    "description": "Title above MCP content awaiting explicit insertion."
+  },
+  "@directMcpContentInsert": {
+    "description": "Action that inserts previewed MCP content into the composer."
+  },
+  "@directMcpContentRoleUser": {
+    "description": "Role label for a user message returned by an MCP prompt."
+  },
+  "@directMcpContentRoleAssistant": {
+    "description": "Role label for an assistant message returned by an MCP prompt."
+  },
+  "@directMcpContentRequestFailed": {
+    "description": "Sanitized failure while loading an MCP prompt or resource preview."
+  },
+  "@directMcpContentUnsupported": {
+    "description": "Error shown when MCP content cannot be inserted as text."
+  },
+  "@directMcpContentChanged": {
+    "description": "Error shown when the selected MCP inventory item changed before retrieval."
+  },
+  "@directMcpContentTooLarge": {
+    "description": "Error shown when fetched MCP content exceeds fixed insertion limits."
+  },
+  "@directMcpContentComposerTooLarge": {
+    "description": "Actionable error when MCP insertion would exceed the Direct composer limit."
+  },
+  "@directMcpContentLoading": {
+    "description": "Status shown while an MCP prompt or resource is loading."
+  },
+  "@directMcpInsecureCredentialsTitle": {
+    "description": "Title before sending MCP credentials over non-loopback HTTP."
+  },
+  "@directMcpInsecureCredentialsMessage": {
+    "description": "Warning before allowing MCP credentials over non-loopback HTTP."
+  },
+  "@directMcpInsecureCredentialsConfirm": {
+    "description": "Action confirming MCP credentials may be sent over unencrypted HTTP."
+  },
+  "@serverIncompatibleMessage": {
+    "description": "Explains that the server version is too new for the current app build",
+    "placeholders": {
+      "serverVersion": {
+        "type": "String",
+        "example": "0.11.0"
+      },
+      "maxVersion": {
+        "type": "String",
+        "example": "0.10.2"
+      }
+    }
+  },
+  "@serverIncompatibleResolution": {
+    "description": "Tells the user how to resolve an unsupported server version",
+    "placeholders": {
+      "maxVersion": {
+        "type": "String",
+        "example": "0.10.2"
+      }
+    }
+  },
+  "@serverIncompatibleConnectBlocked": {
+    "description": "Inline error on the connection form when the probed server version is too new",
+    "placeholders": {
+      "maxVersion": {
+        "type": "String",
+        "example": "0.10.2"
+      }
+    }
+  },
+  "@releaseNotesManualSubtitle": {
+    "description": "Subtitle for manually opening the baked changelog from About.",
+    "placeholders": {
+      "currentVersion": {
+        "type": "String",
+        "example": "3.3.2"
+      }
+    }
+  },
+  "@personalConnectionsStoredOn": {
+    "description": "Line naming the Open WebUI account {account} on the server {server} that stores the personal connections.",
+    "placeholders": {
+      "account": {
+        "type": "String"
+      },
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "@personalConnectionsTestOk": {
+    "description": "Result of a successful tool server check with the number {count} of operations it exposes.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@personalConnectionsDeleteMessage": {
+    "description": "Confirmation text naming the personal connection {name} that will be deleted.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@personalConnectionsSelectionCleared": {
+    "description": "Notice that chat selections were removed because the connections named in {names} changed.",
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "@channelUnreadCount": {
+    "description": "Accessibility text describing unread messages in a channel.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@loadPdfPreview": {
+    "description": "Accessibility label for a PDF preview that has not loaded yet.",
+    "placeholders": {
+      "title": {
+        "type": "String",
+        "example": "Quarterly report"
+      }
+    }
+  },
+  "@workspaceImportSummary": {
+    "description": "Summary of how many items were imported successfully out of the total.",
+    "placeholders": {
+      "success": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@workspaceToolDeleteConfirmMessage": {
+    "description": "Confirmation dialog body for deleting a tool.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@directConnectionDeleteMessage": {
+    "description": "Confirmation message shown before deleting a direct connection and its credentials.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Home provider"
+      }
+    }
+  },
+  "@directConnectionProbeConnectedModels": {
+    "description": "Success status showing how many models a direct provider connection test discovered.",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "@ollamaUnloadModelConfirmTitle": {
+    "description": "Confirmation title shown before unloading an Ollama model.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "llama3.2"
+      }
+    }
+  },
+  "@ollamaModelLoadedMessage": {
+    "description": "Success message after warming an Ollama model.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "llama3.2"
+      }
+    }
+  },
+  "@ollamaModelUnloadedMessage": {
+    "description": "Success message after unloading an Ollama model.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "llama3.2"
+      }
+    }
+  },
+  "@applePccQuotaResetsAt": {
+    "description": "Apple PCC quota reset time.",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@applePccContextSize": {
+    "description": "Apple PCC context size label.",
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@directContextLimit": {
+    "description": "Provider-neutral model context limit label.",
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@hermesSchedulesSummary": {
+    "description": "Summary of active and total Hermes schedules.",
+    "placeholders": {
+      "active": {
+        "type": "int",
+        "example": "1"
+      },
+      "total": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "@hermesJobTooLong": {
+    "description": "Validation error when a Hermes job name or prompt exceeds the character limit.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@hermesLastStatus": {
+    "description": "Label showing the most recent status of a Hermes job.",
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@directMcpTestSucceeded": {
+    "description": "Successful MCP connection test result with the listed tool count.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@advancedRequiredMessage": {
+    "description": "Message on the placeholder shown when a page belongs to the Advanced setting and Advanced is off. {feature} is the page name, e.g. Scheduled tasks.",
+    "placeholders": {
+      "feature": {
+        "type": "String"
+      }
+    }
+  },
+  "@scheduledTaskRruleRuns": {
+    "description": "Live helper under the recurrence rule field describing the schedule the typed rule produces. The placeholder is a schedule summary such as 'Daily at 9:00 AM' or 'Custom schedule'.",
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatCompareModelPair": {
+    "description": "Joins two model names in a comparison error, e.g. 'GPT-4o and Claude'. The first placeholder may itself be a comma-separated list when more names are joined.",
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatDataControlsDeleteFooter": {
+    "description": "Footer under the Delete all chats row naming what it removes. {account} is the Open WebUI account and {server} the server.",
+    "placeholders": {
+      "account": {
+        "type": "String"
+      },
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatDataControlsImporting": {
+    "description": "Progress shown on the Import row while chats are being imported. {count} is how many chats the file holds.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@nativeWebhookDestinationsCount": {
+    "description": "Subtitle of the Webhook destinations row in the native iOS Notifications settings: how many webhook destinations the account has. Zero reads as 'None'.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@calendarStartsAt": {
+    "description": "Agenda row time on the first day of a timed event that runs over several days.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "10:00 AM"
+      }
+    }
+  },
+  "@calendarEndsAt": {
+    "description": "Agenda row time on the last day of a timed event that runs over several days.",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "10:00 AM"
+      }
+    }
+  },
+  "@calendarDayToday": {
+    "description": "Agenda day heading for today; date is the formatted day.",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "example": "Tue, Oct 6"
+      }
+    }
+  },
+  "@calendarDayTomorrow": {
+    "description": "Agenda day heading for tomorrow; date is the formatted day.",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "example": "Tue, Oct 6"
+      }
+    }
+  },
+  "@calendarPreviousDays": {
+    "description": "Accessibility label of the button that moves the agenda back by count days.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@calendarNextDays": {
+    "description": "Accessibility label of the button that moves the agenda forward by count days.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@calendarColorName": {
+    "description": "Accessibility name of a colour a new calendar can take.",
+    "placeholders": {
+      "color": {
+        "type": "String",
+        "example": "blue"
+      }
+    }
+  },
+  "@libraryAccessLevelFor": {
+    "description": "Accessibility label of the access level menu on a person or group's row.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@libraryAccessRemovePrincipal": {
+    "description": "Accessibility action that removes a person or group's access.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@libraryAccessPartialSave": {
+    "description": "Inline error after a save the server accepted only in part; names lists the people or groups it dropped.",
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "@libraryAccessSummaryShared": {
+    "description": "Access summary on a workspace editor: how many people or groups have access.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@libraryPickerAddCount": {
+    "description": "Button that adds the people and groups checked in the picker.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@libraryChannelRemoveTitle": {
+    "description": "Title of the dialog confirming that a member is removed from a channel.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@libraryChannelMemberRemoved": {
+    "description": "Confirmation after a member was removed from a channel.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@libraryNoteSharedBy": {
+    "description": "Banner on a note another account shared with this one without edit access; name is the owner.",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@hermesDeleteConnectionMessage": {
+    "description": "Confirmation message before deleting a saved Hermes connection and its credentials.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Home agent"
+      }
+    }
+  },
+  "@hermesSwitchConnectionPromptTitle": {
+    "description": "Title of the dialog asking whether to switch to the Hermes connection that owns a chat session.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Home agent"
+      }
+    }
+  },
+  "@hermesSwitchConnectionPromptMessage": {
+    "description": "Message of the dialog asking whether to switch to the Hermes connection that owns this chat's session.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Home agent"
+      }
+    }
+  },
+  "@accountsContinueWith": {
+    "description": "Button in the add-account sheet that signs in to another account on a saved Open WebUI server. {server} is the server's name.",
+    "placeholders": {
+      "server": {
+        "type": "String",
+        "example": "Home Lab"
+      }
+    }
+  },
+  "@accountsSignOutOf": {
+    "description": "Destructive row that signs out of one saved Open WebUI account and removes it from this device. {name} is the account's display name.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Alex"
+      }
+    }
+  },
+  "@accountsSignOutConfirmTitle": {
+    "description": "Title of the confirmation before signing out of one Open WebUI account. {name} is the account's display name.",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "Alex"
+      }
+    }
+  },
+  "@accountsAddressConfirmMessage": {
+    "description": "Body of the confirmation shown before a saved account's session is sent to a new address to check that it reaches the same Open WebUI server. {host} is the new address's host name, with its port when it has one.",
+    "placeholders": {
+      "host": {
+        "type": "String",
+        "example": "chat.example.com"
+      }
+    }
+  }
 }

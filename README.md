@@ -8,6 +8,8 @@ Experimental builds for personal compatibility and performance testing. Upstream
 
 Download the **single APK** from the latest release and install it on Android ARM64. It combines the latest main-branch source with reviewed fork patches. A permanent application ID and signing key support upgrades. Releases contain no ZIP, CMD, models or personal settings.
 
+Extended Russian UI and menu translation; interpolation parameters are checked in every build.
+
 ## Patches
 
 | ID | Change | Source |
@@ -15,6 +17,7 @@ Download the **single APK** from the latest release and install it on Android AR
 | APK-001 | ARM64-only Flutter release AOT with icon tree shaking, Dart obfuscation and existing R8/resource shrinking. | `.avx1/PATCHES.json` |
 | APK-002 | One permanent fork application ID and a persistent private signing key; one latest APK. | `.avx1/PATCHES.json` |
 | APK-003 | Use stable Flutter 3.47.7 and latest stable Android SDK 37.2/build-tools 37.0.0; verify exact SDK pins, ARM64 ABI, persistent APK signature and 5004 Flutter tests. | `.avx1/PATCHES.json` |
+| APK-004 | Complete Russian workspace and MCP dialogs, preserve credential-warning meaning and interpolation; restore Russian ARB parameter metadata. | `.avx1/PATCHES.json` |
 
 ## Measurements
 

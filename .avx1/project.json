@@ -4,7 +4,7 @@
   "upstream": "cogwheel0/conduit",
   "development": "main",
   "runner": "ubuntu-24.04",
-  "description": "Conduit ARM64 Android experiments: release AOT, R8, resource shrinking and Open WebUI agent compatibility.",
+  "description": "Conduit: one signed latest ARM64 APK, release AOT/R8, Open WebUI agent compatibility; extended Russian UI translation / дополненный перевод на русский.",
   "repository": "aktalascloud/conduit-arm64-performance",
   "channel": "latest",
   "upstream_commit": "3f95de152283435ea60ce3d083c8e64aa0537736",
