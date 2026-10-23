@@ -1,0 +1,12 @@
+{
+  "id": "conduit",
+  "slug": "conduit-arm64-performance",
+  "upstream": "cogwheel0/conduit",
+  "development": "main",
+  "runner": "ubuntu-24.04",
+  "description": "Conduit ARM64 Android experiments: release AOT, R8, resource shrinking and Open WebUI agent compatibility.",
+  "repository": "aktalascloud/conduit-arm64-performance",
+  "channel": "stable",
+  "upstream_commit": "b1f5bbbc04af8b1bc1d2f2d288cca74dbe22d2bb",
+  "stable_tag": "v4.2.1"
+}

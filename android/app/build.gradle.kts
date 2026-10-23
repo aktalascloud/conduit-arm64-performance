@@ -19,7 +19,8 @@ android {
     ndkVersion = "29.0.14206865"
 
     defaultConfig {
-        applicationId = "app.cogwheel.conduit"
+        val forkChannel = providers.gradleProperty("avx1Channel").orElse("stable").get()
+        applicationId = "io.github.aktalascloud.conduit" + if (forkChannel == "development") ".dev" else ""
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -45,6 +46,7 @@ android {
     signingConfigs {
         if (keystorePropertiesFile.exists()) {
             create("release") {
+                storeType = "PKCS12"
                 storeFile = file(keystoreProperties["storeFile"] as String)
                 storePassword = keystoreProperties["storePassword"] as String
                 keyAlias = keystoreProperties["keyAlias"] as String
