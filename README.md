@@ -6,7 +6,7 @@ Experimental builds for personal compatibility and performance testing. Upstream
 
 [Upstream project](https://github.com/cogwheel0/conduit) · [Packages](https://github.com/aktalascloud/conduit-arm64-performance/releases)
 
-Extract the appropriate archive and run `Install.cmd`. `Install.cmd -CheckOnly` verifies integrity without installing. Packages exclude personal configuration, credentials, history, caches and model weights. Models download from Hugging Face on demand.
+Extract the appropriate archive and run `Install.cmd`. `Install.cmd -CheckOnly` verifies integrity without installing. Packages exclude personal configuration, credentials, history, caches and model weights. Conduit connects to your server; no LLM weights are bundled.
 
 ## Patches
 
@@ -17,6 +17,8 @@ Extract the appropriate archive and run `Install.cmd`. `Install.cmd -CheckOnly` 
 | APK-003 | Use stable Flutter 3.47.7 and latest stable Android SDK 37.2/build-tools 37.0.0; verify exact SDK pins, ARM64 ABI, persistent APK signature and 5004 Flutter tests. | `.avx1/PATCHES.json` |
 
 ## Measurements
+
+The stable ARM64 APK is 91,561,648 bytes, versus 97,324,692 bytes for the official v4.2.1 ARM64 APK: **5.92% smaller**. This compares different toolchains and package IDs; it is a download/storage measurement, not a runtime speed claim. [Official comparison artifact](https://github.com/cogwheel0/conduit/releases/tag/v4.2.1).
 
 | Metric | Verified improvement |
 |---|---|
