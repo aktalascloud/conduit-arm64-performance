@@ -18,6 +18,7 @@ Extended Russian UI and menu translation; interpolation parameters are checked i
 | APK-002 | One permanent fork application ID and a persistent private signing key; one latest APK. | `.avx1/PATCHES.json` |
 | APK-003 | Use stable Flutter 3.47.8 and latest stable Android SDK 37.2/build-tools 37.0.0; verify exact SDK pins, ARM64 ABI, persistent APK signature and 5004 Flutter tests. | `.avx1/PATCHES.json` |
 | APK-004 | Complete Russian workspace and MCP dialogs, preserve credential-warning meaning and interpolation; restore Russian ARB parameter metadata. | `.avx1/PATCHES.json` |
+| APK-005 | Source-built SQLite, Dart JNI and ONNX Runtime/JNI: O3 ARMv8-A ThinLTO; verify actual C/C++ commands, exports and Android 16 KiB alignment. | `.avx1/native-arm64.json` |
 
 Source-built SQLite 3.53.4, dartjni 1.0.3 and ONNX Runtime/JNI 1.22.0 use NDK Clang O3, ARMv8-A and ThinLTO. Public/JNI exports, packaged build IDs and Android 16 KiB page alignment are checked. CPU, NNAPI and XNNPACK providers are preserved. Flutter engine, WebRTC, PDFium and AndroidX vendor binaries are identified separately; no C/C++ O3 claim is made for unchanged binaries or Dart AOT. Physical-phone runtime speed has not been measured. See `.avx1/native-arm64.json` for pinned sources and compatibility requirements.
 

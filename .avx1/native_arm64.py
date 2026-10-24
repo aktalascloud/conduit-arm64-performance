@@ -116,8 +116,11 @@ def flutter_reference(tools):
 def onnx_compile_evidence(build):
     path=build/'Release/compile_commands.json'
     entries=json.loads(path.read_text('utf-8'))
-    selected=[e for e in entries if '/onnxruntime/core/' in str(e['file']).replace('\\','/')]
-    if not selected:raise RuntimeError('ONNX compiler command evidence is missing')
+    core=[e for e in entries if '/onnxruntime/core/' in str(e['file']).replace('\\','/')]
+    cxx=[e for e in core if Path(e['file']).suffix.lower() in ('.c','.cc','.cpp','.cxx')]
+    jni=[e for e in entries if '/java/src/main/native/' in str(e['file']).replace('\\','/')]
+    selected=cxx+jni
+    if not cxx or not jni:raise RuntimeError('ONNX core/JNI compiler command evidence is missing')
     commands=[e.get('arguments') or shlex.split(e['command']) for e in selected]
     for args in commands:
         optimizations=[a for a in args if re.fullmatch('-O[0123szgfast]+',a)]
@@ -126,8 +129,13 @@ def onnx_compile_evidence(build):
             raise RuntimeError('Effective ONNX core compilation differs from O3 ThinLTO')
         if '-ffast-math' in args or '-mcpu=native' in args:
             raise RuntimeError('Unsupported ONNX core optimization flag')
-    return {'core_translation_units_checked':len(commands),'compile_database_sha256':sha256(path),
-            'effective_core_optimization':'-O3 -flto=thin','fast_math':False,
+    return {'core_translation_units_checked':len(cxx),'jni_translation_units_checked':len(jni),
+            'assembly_translation_units':sum(Path(e['file']).suffix.lower()=='.s' for e in core),
+            'assembly_note':'Handwritten MLAS assembly produces native objects; LLVM bitcode ThinLTO does not apply to assembly.',
+            'compile_database_sha256':sha256(path),
+            'effective_core_and_jni_optimization':'-O3 -flto=thin','fast_math':False,
+            'architecture_policy':'ARMv8-A generic code; optional upstream MLAS kernel flags and CPU feature dispatch are preserved, not forced on the whole library.',
+            'cpu_dispatch_source':'onnxruntime/core/mlas/lib/platform.cpp at the pinned ONNX commit',
             'architecture_flags':sorted({a for args in commands for a in args if a.startswith(('-march=','-mcpu='))})}
 
 def compile_c(name,sources,includes,defines,output,extra_libraries):
