@@ -703,5 +703,11 @@
       "spawnLock",
       "tlsKey"
     ]
+  },
+  "eigen": {
+    "repository": "https://github.com/eigen-mirror/eigen.git",
+    "commit": "1d8b82b0740839c0de7f1242a3585e3390ff5f33",
+    "upstream": "https://gitlab.com/libeigen/eigen",
+    "origin": "Exact commit pinned in ONNX Runtime v1.22.0 cmake/deps.txt; no archive checksum weakened"
   }
 }

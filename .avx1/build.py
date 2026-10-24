@@ -79,6 +79,8 @@ def build_python(project, package, manifest):
         run(sys.executable, "-c", launcher, audit_target, script, *arguments)
     if project == "terminal":
         checked_script(ROOT / ".avx1/test_terminal.py")
+        measurement=WORK/'grep-preview-measurement.json'
+        if measurement.exists():manifest['context_guard']=json.loads(measurement.read_text('utf-8'))
     else:
         checked_script(ROOT / ".avx1/test_mcp_compat.py", "--source", ROOT / "backend/open_webui")
         checked_script(ROOT / ".avx1/bench_json.py")
@@ -152,6 +154,7 @@ def build_conduit(package, manifest, channel):
     run("git", "submodule", "update", "--init", "--recursive", "--depth", "1", "third_party/katex", "third_party/mermaid")
     run(flutter, "pub", "get", "--enforce-lockfile")
     from native_arm64 import prepare as prepare_native, inventory as native_inventory
+    native_receipt = prepare_native()
     # Workspace members must finish their code generation before the app.
     for parent in (ROOT / "packages", ROOT / "apps"):
         if parent.exists():
@@ -164,7 +167,6 @@ def build_conduit(package, manifest, channel):
     run(flutter, "test")
     outdated = run(flutter, "pub", "outdated", "--json", capture=True).stdout
     (WORK / "dependency-review.json").write_text(outdated, encoding="utf-8")
-    native_receipt = prepare_native()
     key = WORK / "conduit-signing.p12"
     properties = ROOT / "android/key.properties"
     key.write_bytes(base64.b64decode(signing_material, validate=True))

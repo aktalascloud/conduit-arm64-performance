@@ -117,8 +117,11 @@ def jni_native(receipt):
     item=compile_c(target.name,[source/'dartjni.c',source/'third_party/global_jni_env.c',source/'include/dart_api_dl.c'],
                    [source,source/'include'],['DART_SHARED_LIB'],target,['-llog','-ldl'])
     receipt[target.name]={**item,'version':pin['version'],'source':pin['url'],'source_sha256':pin['sha256'],
-                          'license':'BSD-3-Clause; package LICENSE retained','checks':['AArch64 ELF','16 KiB pages']}
+                          'license':'BSD-3-Clause plus Apache-2.0 Android JNI definitions; notices retained','checks':['AArch64 ELF','16 KiB pages']}
     shutil.copy2(source.parent/'LICENSE',ROOT/'android/app/src/main/assets/avx1-native-notices/dartjni-LICENSE')
+    shutil.copy2(ROOT/'.avx1/licenses/Apache-2.0.txt',ROOT/'android/app/src/main/assets/avx1-native-notices/dartjni-android-Apache-2.0.txt')
+    (ROOT/'android/app/src/main/assets/avx1-native-notices/dartjni-android-NOTICE.txt').write_text(
+        'Generated JNI environment bindings include Android JNI header definitions.\nCopyright (C) 2006 The Android Open Source Project.\nLicensed under Apache License 2.0; full license included alongside.\n',encoding='utf-8')
 
 def onnx_native(receipt):
     pin=policy()['onnx'];source=NATIVE/'onnxruntime'
@@ -127,6 +130,17 @@ def onnx_native(receipt):
     if run('git','rev-parse','HEAD',cwd=source,capture=True).stdout.strip()!=pin['commit']:
         raise RuntimeError('ONNX source differs from the pinned commit')
     run('git','diff','--exit-code',cwd=source)
+    # The historical GitLab ZIP no longer matches the immutable ORT deps hash.
+    # Fetch the identical upstream Git commit via its mirror, retaining source identity.
+    eigen_pin=policy()['eigen'];eigen=NATIVE/'eigen'
+    if not eigen.exists():
+        run('git','init',eigen)
+        run('git','remote','add','origin',eigen_pin['repository'],cwd=eigen)
+        run('git','fetch','--depth','1','origin',eigen_pin['commit'],cwd=eigen)
+        run('git','checkout','--detach','FETCH_HEAD',cwd=eigen)
+    if run('git','rev-parse','HEAD',cwd=eigen,capture=True).stdout.strip()!=eigen_pin['commit']:
+        raise RuntimeError('Eigen source differs from the exact ONNX dependency commit')
+    run('git','diff','--exit-code',cwd=eigen)
     sdk,ndk,tools,_=toolchain()
     build=NATIVE/'ort-build'
     release_flags=' '.join([*FLAGS])
@@ -134,9 +148,11 @@ def onnx_native(receipt):
         '--android_abi','arm64-v8a','--android_api','24','--android_sdk_path',sdk,'--android_ndk_path',ndk,
         '--build_shared_lib','--build_java','--use_nnapi','--use_xnnpack','--enable_lto','--skip_tests',
         '--parallel','2','--cmake_generator','Ninja','--compile_no_warning_as_error',
+        '--use_preinstalled_eigen','--eigen_path',eigen,
         '--cmake_extra_defines','CMAKE_C_FLAGS_RELEASE='+release_flags,'CMAKE_CXX_FLAGS_RELEASE='+release_flags,
         'CMAKE_SHARED_LINKER_FLAGS='+' '.join(LINK),'CMAKE_EXPORT_COMPILE_COMMANDS=ON',
-        'ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON','ANDROID_STL=c++_static',cwd=source)
+        'ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON','ANDROID_STL=c++_static',
+        'CMAKE_MAKE_PROGRAM='+shutil.which('ninja'),cwd=source)
     archive=NATIVE/'onnxruntime-original.aar';pom=NATIVE/'onnxruntime-original.pom'
     if not archive.exists():download(pin['aar_url'],archive,pin['aar_sha256'])
     if sha256(archive)!=pin['aar_sha256']:raise RuntimeError('Original ONNX AAR hash mismatch')
@@ -160,7 +176,8 @@ def onnx_native(receipt):
                        'providers':['CPU','NNAPI','XNNPACK'],'full_operator_build':True,
                        'checks':['original public API/JNI exports preserved','AArch64 ELF','16 KiB pages'],
                        'sha256_before_android_strip':sha256(target),'build_id':build_id(target,tools),
-                       'license':'MIT and upstream ThirdPartyNotices preserved'}
+                       'license':'MIT and upstream ThirdPartyNotices preserved',
+                       'third_party_sources':{'Eigen':{**eigen_pin,'license':'MPL-2.0; exact source commit retained'}}}
     repo=NATIVE/'maven/com/microsoft/onnxruntime/onnxruntime-android'/pin['version'];repo.mkdir(parents=True,exist_ok=True)
     aar=repo/f"onnxruntime-android-{pin['version']}.aar"
     with zipfile.ZipFile(archive) as original,zipfile.ZipFile(aar,'w',zipfile.ZIP_DEFLATED) as output:
@@ -172,12 +189,15 @@ def onnx_native(receipt):
     for name in ('LICENSE','ThirdPartyNotices.txt','ThirdPartyNotices.md'):
         p=source/name
         if p.is_file():shutil.copy2(p,notices/('onnxruntime-'+name))
+    shutil.copy2(eigen/'COPYING.MPL2',notices/'Eigen-COPYING.MPL2')
+    (notices/'Eigen-source.txt').write_text(eigen_pin['repository']+'\nCommit: '+eigen_pin['commit']+'\n',encoding='utf-8')
 
 def prepare():
     NATIVE.mkdir(parents=True,exist_ok=True)
     receipt={}
-    sqlite_native(receipt);jni_native(receipt);onnx_native(receipt)
-    (NATIVE/'build-receipt.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
+    for builder in (sqlite_native,jni_native,onnx_native):
+        builder(receipt)
+        (NATIVE/'build-receipt.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
     return receipt
 
 def inventory(apk,receipt):
