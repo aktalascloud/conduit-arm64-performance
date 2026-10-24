@@ -22,9 +22,11 @@ Extended Russian UI and menu translation; interpolation parameters are checked i
 
 Source-built SQLite 3.53.4, dartjni 1.0.3 and ONNX Runtime/JNI 1.22.0 use NDK Clang O3, ARMv8-A and ThinLTO. Public/JNI exports, packaged build IDs and Android 16 KiB page alignment are checked. CPU, NNAPI and XNNPACK providers are preserved. Flutter engine, WebRTC, PDFium and AndroidX vendor binaries are identified separately; no C/C++ O3 claim is made for unchanged binaries or Dart AOT. Physical-phone runtime speed has not been measured. See `.avx1/native-arm64.json` for pinned sources and compatibility requirements.
 
+ThinLTO is verified for 486 ONNX core C/C++ files and 17 JNI files. The 21 handwritten MLAS assembly files remain native objects; bitcode LTO does not apply to assembly. Upstream CPU feature dispatch is preserved.
+
 ## Measurements
 
-The unified 2026-10-23 ARM64 APK (`c1888267`) is 91,561,648 bytes, versus 97,324,692 bytes for the official v4.2.1 ARM64 APK: **5.92% smaller**. This compares different toolchains and package IDs; it measures download/storage size. [Official comparison artifact](https://github.com/cogwheel0/conduit/releases/tag/v4.2.1).
+The 2026-10-24 ARM64 APK (`316e124d`) is 92,667,875 bytes: **4.78% smaller** than the official v4.2.1 ARM64 APK (97,324,692 bytes), and 1.21% larger than our 2026-10-23 APK. This measures download/storage size across different toolchains; it is not a runtime-speed benchmark. [Exact library inventory, hashes and checks](.avx1/measurements/native-release-316e124d.json). [Official comparison artifact](https://github.com/cogwheel0/conduit/releases/tag/v4.2.1).
 
 Runtime performance has not been measured on a physical phone.
 
