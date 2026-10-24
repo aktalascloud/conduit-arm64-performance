@@ -148,11 +148,10 @@ def onnx_native(receipt):
         '--android_abi','arm64-v8a','--android_api','24','--android_sdk_path',sdk,'--android_ndk_path',ndk,
         '--build_shared_lib','--build_java','--use_nnapi','--use_xnnpack','--enable_lto','--skip_tests',
         '--parallel','2','--cmake_generator','Ninja','--compile_no_warning_as_error',
-        '--use_preinstalled_eigen','--eigen_path',eigen,
         '--cmake_extra_defines','CMAKE_C_FLAGS_RELEASE='+release_flags,'CMAKE_CXX_FLAGS_RELEASE='+release_flags,
         'CMAKE_SHARED_LINKER_FLAGS='+' '.join(LINK),'CMAKE_EXPORT_COMPILE_COMMANDS=ON',
         'ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON','ANDROID_STL=c++_static',
-        'CMAKE_MAKE_PROGRAM='+shutil.which('ninja'),cwd=source)
+        'CMAKE_MAKE_PROGRAM='+shutil.which('ninja'),'FETCHCONTENT_SOURCE_DIR_EIGEN3='+str(eigen),cwd=source)
     archive=NATIVE/'onnxruntime-original.aar';pom=NATIVE/'onnxruntime-original.pom'
     if not archive.exists():download(pin['aar_url'],archive,pin['aar_sha256'])
     if sha256(archive)!=pin['aar_sha256']:raise RuntimeError('Original ONNX AAR hash mismatch')
