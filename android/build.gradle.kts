@@ -1,3 +1,15 @@
+// Only the source-built ONNX AAR from the verified recipe may satisfy this module.
+allprojects {
+    repositories {
+        exclusiveContent {
+            forRepository {
+                maven { url = uri(rootProject.projectDir.resolve("../.avx1-work/native/maven")) }
+            }
+            filter { includeModule("com.microsoft.onnxruntime", "onnxruntime-android") }
+        }
+    }
+}
+
 allprojects {
     repositories {
         google()

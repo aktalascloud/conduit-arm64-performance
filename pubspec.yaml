@@ -210,3 +210,13 @@ flutter_native_splash:
   # Web specific settings
   web: false
     
+
+# The verified recipe packages its source-built SQLite in Android jniLibs.
+hooks:
+  user_defines:
+    sqlite3:
+      source:
+        android: system
+        default: sqlite3
+      name:
+        android: sqlite3

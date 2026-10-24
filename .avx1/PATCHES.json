@@ -18,5 +18,10 @@
     "id": "APK-004",
     "description": "Complete Russian workspace and MCP dialogs, preserve credential-warning meaning and interpolation; restore Russian ARB parameter metadata.",
     "source": "Reviewed Russian translation in this fork; source key/placeholder gate."
+  },
+  {
+    "id": "APK-005",
+    "description": "Rebuild SQLite 3.53.4, dartjni 1.0.3 and ONNX Runtime/JNI 1.22.0 with NDK O3 ARMv8-A ThinLTO, preserving API/JNI exports and CPU/NNAPI/XNNPACK providers; record all native libraries and unchanged vendor builds.",
+    "source": "Pinned corresponding sources and verified package/ABI provenance; .avx1/native-arm64.json."
   }
 ]
