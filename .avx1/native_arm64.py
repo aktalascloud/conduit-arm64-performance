@@ -222,6 +222,7 @@ def onnx_native(receipt):
         '--parallel','2','--cmake_generator','Ninja','--compile_no_warning_as_error',
         '--cmake_extra_defines','CMAKE_C_FLAGS_RELEASE='+release_flags,'CMAKE_CXX_FLAGS_RELEASE='+release_flags,
         'CMAKE_SHARED_LINKER_FLAGS='+' '.join(LINK),'CMAKE_EXPORT_COMPILE_COMMANDS=ON',
+        'onnxruntime_BUILD_UNIT_TESTS=OFF',
         'ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON','ANDROID_STL=c++_static',
         'CMAKE_MAKE_PROGRAM='+shutil.which('ninja'),'FETCHCONTENT_SOURCE_DIR_EIGEN3='+str(eigen),cwd=source)
     compiler_evidence=onnx_compile_evidence(build)
