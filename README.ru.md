@@ -16,7 +16,7 @@
 |---|---|---|
 | APK-001 | ARM64 release AOT, удаление неиспользуемых иконок, обфускация Dart и исходные R8/resource shrinking. | `.avx1/PATCHES.json` |
 | APK-002 | Один постоянный ID форка и закрытый ключ подписи; один актуальный APK. | `.avx1/PATCHES.json` |
-| APK-003 | Flutter 3.47.7, стабильный Android SDK 37.2/build-tools 37.0.0; проверка подписи, ABI и 5004 теста. | `.avx1/PATCHES.json` |
+| APK-003 | Flutter 3.47.8, стабильный Android SDK 37.2/build-tools 37.0.0; проверка подписи, ABI и 5004 теста. | `.avx1/PATCHES.json` |
 | APK-004 | Дополненный русский перевод, проверка параметров и меню. | `.avx1/PATCHES.json` |
 
 SQLite 3.53.4, dartjni 1.0.3 и ONNX Runtime/JNI 1.22.0 собираются из исходников NDK Clang с O3, ARMv8-A и ThinLTO. Проверяются API/JNI-экспорты, идентификаторы сборок внутри APK и выравнивание страниц 16 КиБ. Провайдеры CPU, NNAPI и XNNPACK сохранены. Готовые библиотеки Flutter engine, WebRTC, PDFium и AndroidX перечисляются отдельно; им и Dart AOT не приписываются флаги C/C++. Скорость на физическом телефоне не измерялась. Закреплённые исходники и требования совместимости: `.avx1/native-arm64.json`.

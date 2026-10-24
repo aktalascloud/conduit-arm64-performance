@@ -70,6 +70,7 @@ jobs:
             .avx1-work/security-gate.json
             .avx1-work/native/build-receipt.json
             .avx1-work/native/ort-build/Release/CMakeCache.txt
+            .avx1-work/native/ort-build/Release/compile_commands.json
           if-no-files-found: ignore
           include-hidden-files: true
           retention-days: 3

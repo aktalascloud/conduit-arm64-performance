@@ -35,8 +35,7 @@
     "libflutter.so": {
       "kind": "prebuilt",
       "source": "Official engine from pinned Flutter SDK",
-      "reason": "Exact engine ABI retained; full Flutter engine toolchain is outside this NDK library rebuild",
-      "expected_packaged_sha256": "34f4113ae93b2c7069030f0bcfede18e7c83ed548b71a75c9ebb749403d3a060"
+      "reason": "Official Flutter 3.47.8 engine retained; the packaged binary must equal the hash-verified official artifact after NDK stripping. No C/C++ O3 claim."
     },
     "libdatastore_shared_counter.so": {
       "kind": "prebuilt",
@@ -738,5 +737,12 @@
         "bytes": 788358
       }
     ]
+  },
+  "flutter_engine": {
+    "framework_commit": "737ba8f885dc774b53b442759999a312c9461e4e",
+    "engine_commit": "cf636b1dfb818dd6a3ff16e390e93b1a036969c8",
+    "url": "https://storage.googleapis.com/flutter_infra_release/flutter/cf636b1dfb818dd6a3ff16e390e93b1a036969c8/android-arm64-release/artifacts.zip",
+    "sha256": "977a76c68861eb29af4fd210673a62134680c3248c9fbd59f2eca92975a4d578",
+    "unstripped_sha256": "44f30b3530fe8f806fb71b1bd79124ae7537d10b66e13c3af2b6250223cf9931"
   }
 }

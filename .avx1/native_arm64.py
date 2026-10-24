@@ -1,11 +1,13 @@
 """Source-built Android ARMv8-A libraries with per-binary provenance and ABI gates."""
 from __future__ import annotations
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
 import re
 import shutil
+import shlex
 import subprocess
 import tarfile
 import tempfile
@@ -91,6 +93,42 @@ def build_id(binary,tools):
     match=re.search(r'Build ID:\s*([a-f0-9]+)',notes)
     if not match:raise RuntimeError('Rebuilt native binary lacks a build ID')
     return match.group(1)
+
+def flutter_reference(tools):
+    pin=policy()['flutter_engine']
+    framework=json.loads((ROOT/'.avx1/toolchains.json').read_text('utf-8'))
+    engine=(WORK/'flutter/bin/internal/engine.version').read_text('utf-8').strip()
+    if framework['flutter_sha']!=pin['framework_commit'] or engine!=pin['engine_commit']:
+        raise RuntimeError('Flutter engine changed; review the official native artifact')
+    archive=NATIVE/'flutter-engine.zip'
+    if not archive.exists():download(pin['url'],archive,pin['sha256'])
+    if sha256(archive)!=pin['sha256']:raise RuntimeError('Official Flutter engine archive hash mismatch')
+    with zipfile.ZipFile(archive) as outer,zipfile.ZipFile(io.BytesIO(outer.read('flutter.jar'))) as jar:
+        data=jar.read('lib/arm64-v8a/libflutter.so')
+    if hashlib.sha256(data).hexdigest()!=pin['unstripped_sha256']:
+        raise RuntimeError('Official Flutter engine binary hash mismatch')
+    target=NATIVE/'official-libflutter.so';target.write_bytes(data)
+    run(tools/'llvm-strip','--strip-unneeded',target)
+    return {'engine_commit':engine,'official_artifact':pin['url'],'official_artifact_sha256':pin['sha256'],
+            'official_unstripped_sha256':pin['unstripped_sha256'],'expected_packaged_sha256':sha256(target),
+            'build_id':build_id(target,tools)}
+
+def onnx_compile_evidence(build):
+    path=build/'Release/compile_commands.json'
+    entries=json.loads(path.read_text('utf-8'))
+    selected=[e for e in entries if '/onnxruntime/core/' in str(e['file']).replace('\\','/')]
+    if not selected:raise RuntimeError('ONNX compiler command evidence is missing')
+    commands=[e.get('arguments') or shlex.split(e['command']) for e in selected]
+    for args in commands:
+        optimizations=[a for a in args if re.fullmatch('-O[0123szgfast]+',a)]
+        lto=[a for a in args if a.startswith('-flto') or a=='-fno-lto']
+        if not optimizations or optimizations[-1]!='-O3' or not lto or lto[-1]!='-flto=thin':
+            raise RuntimeError('Effective ONNX core compilation differs from O3 ThinLTO')
+        if '-ffast-math' in args or '-mcpu=native' in args:
+            raise RuntimeError('Unsupported ONNX core optimization flag')
+    return {'core_translation_units_checked':len(commands),'compile_database_sha256':sha256(path),
+            'effective_core_optimization':'-O3 -flto=thin','fast_math':False,
+            'architecture_flags':sorted({a for args in commands for a in args if a.startswith(('-march=','-mcpu='))})}
 
 def compile_c(name,sources,includes,defines,output,extra_libraries):
     _,_,tools,clang=toolchain()
@@ -186,6 +224,7 @@ def onnx_native(receipt):
         'CMAKE_SHARED_LINKER_FLAGS='+' '.join(LINK),'CMAKE_EXPORT_COMPILE_COMMANDS=ON',
         'ANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON','ANDROID_STL=c++_static',
         'CMAKE_MAKE_PROGRAM='+shutil.which('ninja'),'FETCHCONTENT_SOURCE_DIR_EIGEN3='+str(eigen),cwd=source)
+    compiler_evidence=onnx_compile_evidence(build)
     archive=NATIVE/'onnxruntime-original.aar';pom=NATIVE/'onnxruntime-original.pom'
     if not archive.exists():download(pin['aar_url'],archive,pin['aar_sha256'])
     if sha256(archive)!=pin['aar_sha256']:raise RuntimeError('Original ONNX AAR hash mismatch')
@@ -206,6 +245,7 @@ def onnx_native(receipt):
         replacements['jni/arm64-v8a/'+name]=target.read_bytes()
         receipt[name]={'kind':'source-built','version':pin['version'],'source':pin['repository'],
                        'source_commit':pin['commit'],'compile_flags':FLAGS,'link_flags':LINK,
+                       'compiler_command_evidence':compiler_evidence,
                        'providers':['CPU','NNAPI','XNNPACK'],'full_operator_build':True,
                        'checks':['original public API/JNI exports preserved','AArch64 ELF','16 KiB pages'],
                        'sha256_before_android_strip':sha256(target),'build_id':build_id(target,tools),
@@ -255,6 +295,7 @@ def inventory(apk,receipt):
                 if name in ('libflutter.so','libapp.so'):
                     toolchains=json.loads((ROOT/'.avx1/toolchains.json').read_text('utf-8'))
                     item.update(flutter_version=toolchains['flutter_version'],flutter_source_commit=toolchains['flutter_sha'])
+                if name=='libflutter.so':item.update(flutter_reference(tools))
             elif build_id(binary,tools)!=item['build_id']:
                 raise RuntimeError('APK contains a different native build: '+name)
             required=set(pins['expected_exports'].get(name,[]))
