@@ -13,7 +13,8 @@
     "url": "https://sqlite.org/2026/sqlite-amalgamation-3530400.zip",
     "sha256": "1e71ddf93849c6a6ecf58b827c0692073d2dd7ee40196158068f7b29f422e87d",
     "member": "sqlite-amalgamation-3530400/sqlite3.c",
-    "source_id": "2026-07-24 19:02:57 bf7c7f30031888f4e796e429ab3978879485813aaca6f641c7b33e4e09459bcc"
+    "source_id": "2026-07-24 19:02:57 bf7c7f30031888f4e796e429ab3978879485813aaca6f641c7b33e4e09459bcc",
+    "package_version": "3.6.0"
   },
   "onnx": {
     "version": "1.22.0",
@@ -34,25 +35,29 @@
     "libflutter.so": {
       "kind": "prebuilt",
       "source": "Official engine from pinned Flutter SDK",
-      "reason": "Exact engine ABI retained; full Flutter engine toolchain is outside this NDK library rebuild"
+      "reason": "Exact engine ABI retained; full Flutter engine toolchain is outside this NDK library rebuild",
+      "expected_packaged_sha256": "34f4113ae93b2c7069030f0bcfede18e7c83ed548b71a75c9ebb749403d3a060"
     },
     "libdatastore_shared_counter.so": {
       "kind": "prebuilt",
       "version": "AndroidX Datastore 1.1.7",
       "source": "https://android.googlesource.com/platform/frameworks/support/",
-      "reason": "Pinned AndroidX AAR; exact release native source/build mapping not supplied by the Kotlin package"
+      "reason": "Pinned AndroidX AAR; exact release native source/build mapping not supplied by the Kotlin package",
+      "expected_packaged_sha256": "d3e48717c9aa147e0ab21063ba0e8e0211cabf8bf40b222640829519edbf58e1"
     },
     "libjingle_peerconnection_so.so": {
       "kind": "prebuilt",
       "version": "io.github.webrtc-sdk:android:150.7871.01",
       "source": "https://github.com/webrtc-sdk/android",
-      "reason": "Pinned WebRTC vendor build and JNI ABI retained; Chromium/depot_tools build is not the NDK-only pipeline"
+      "reason": "Pinned WebRTC vendor build and JNI ABI retained; Chromium/depot_tools build is not the NDK-only pipeline",
+      "expected_packaged_sha256": "7b299113fcd743de7dc5559686b21fc2681b2c8598347d8dc0743d2e004995ca"
     },
     "libpdfium.so": {
       "kind": "prebuilt",
       "version": "chromium/7811",
       "source": "https://github.com/bblanchon/pdfium-binaries/releases/tag/chromium%2F7811",
-      "reason": "Pinned PDFium Chromium build retained; its GN/depot_tools toolchain is not the NDK-only pipeline"
+      "reason": "Pinned PDFium Chromium build retained; its GN/depot_tools toolchain is not the NDK-only pipeline",
+      "expected_packaged_sha256": "ef8c440d29e2a0820a65554487d23020bd88756ee2d6aad8f8fb59bab3b2eb14"
     }
   },
   "expected_exports": {
@@ -709,5 +714,29 @@
     "commit": "1d8b82b0740839c0de7f1242a3585e3390ff5f33",
     "upstream": "https://gitlab.com/libeigen/eigen",
     "origin": "Exact commit pinned in ONNX Runtime v1.22.0 cmake/deps.txt; no archive checksum weakened"
+  },
+  "datastore_version": "1.1.7",
+  "pdfium_vendor": {
+    "url": "https://github.com/bblanchon/pdfium-binaries/releases/download/chromium/7811/pdfium-android-arm64.tgz",
+    "sha256": "f51539cadeb5135534305b8bdf8685ce2fbe9991dbbc5b35f553108411b9ed14",
+    "encoded_release": "chromium%2F7811"
+  },
+  "webrtc_vendor": {
+    "version": "150.7871.01",
+    "source_commit": "7b6390fb098303b31af76906bf15f7decaa4ef95",
+    "licenses": [
+      {
+        "url": "https://raw.githubusercontent.com/webrtc-sdk/android/7b6390fb098303b31af76906bf15f7decaa4ef95/LICENSE",
+        "sha256": "e6b282fe6c0fb353928923470457f31b44cbab203effd60c0cde4a5bb96c8aec",
+        "name": "LICENSE",
+        "bytes": 1068
+      },
+      {
+        "url": "https://raw.githubusercontent.com/webrtc-sdk/android/7b6390fb098303b31af76906bf15f7decaa4ef95/Licenses/WEBRTC.md",
+        "sha256": "d1f9382c6878ac024155fd6d44a5977329108bb8b0a01cea40e4a2f1d7de252e",
+        "name": "WEBRTC.md",
+        "bytes": 788358
+      }
+    ]
   }
 }

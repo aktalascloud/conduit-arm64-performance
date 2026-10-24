@@ -204,15 +204,22 @@ def build_conduit(package, manifest, channel):
     manifest["device_performance"] = "Not measured on a physical Android device"
 
 
+def reusable_native_cache(project):
+    if project!='conduit' or WORK.is_symlink() or not WORK.is_dir():return False
+    if {p.name for p in WORK.iterdir()}!={'native'}:return False
+    folder=WORK/'native'
+    return folder.is_dir() and not folder.is_symlink() and {p.name for p in folder.iterdir()}.issubset({'onnxruntime','eigen','ort-build'})
+
+
 def main():
     project = json.loads((ROOT / ".avx1/project.json").read_text("utf-8"))
     channel = os.environ.get("BUILD_CHANNEL", "latest")
     day = os.environ.get("BUILD_DAY") or dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d")
     if channel != "latest" or not re.fullmatch(r"\d{8}", day):
         raise ValueError("Invalid build channel/date")
-    if WORK.exists() or OUT.exists():
+    if OUT.exists() or (WORK.exists() and not reusable_native_cache(project['id'])):
         raise RuntimeError("Use a fresh checkout for each build")
-    WORK.mkdir()
+    WORK.mkdir(exist_ok=True)
     OUT.mkdir()
     run(sys.executable, ROOT / '.avx1/test_public_gate.py')
     run(sys.executable, ROOT / '.avx1/test_locales.py')

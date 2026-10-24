@@ -12,12 +12,46 @@ import tempfile
 import zipfile
 from common import ROOT,WORK,download,run,sha256
 
-FLAGS=['-O3','-DNDEBUG','-march=armv8-a','-flto=thin','-ffunction-sections','-fdata-sections','-fno-fast-math']
-LINK=['-flto=thin','-Wl,--lto-O3','-Wl,--gc-sections','-Wl,-z,max-page-size=16384','-Wl,--build-id=sha1']
+FLAGS=['-O3','-DNDEBUG','-march=armv8-a','-flto=thin','-ffunction-sections','-fdata-sections','-fno-fast-math',
+       '-fstack-protector-strong','-D_FORTIFY_SOURCE=2']
+LINK=['-flto=thin','-Wl,--lto-O3','-Wl,--gc-sections','-Wl,-z,max-page-size=16384','-Wl,--build-id=sha1',
+      '-Wl,-z,relro','-Wl,-z,now','-Wl,-z,noexecstack']
 NATIVE=WORK/'native'
 POLICY=ROOT/'.avx1/native-arm64.json'
 
 def policy():return json.loads(POLICY.read_text('utf-8'))
+
+def package_folder(name):
+    from urllib.parse import urljoin,urlparse,unquote
+    config=ROOT/'.dart_tool/package_config.json'
+    entry=next(x for x in json.loads(config.read_text('utf-8'))['packages'] if x['name']==name)
+    return Path(unquote(urlparse(urljoin(config.resolve().as_uri(),entry['rootUri'])).path))
+
+def vendor_notices():
+    pins=policy();target=ROOT/'android/app/src/main/assets/avx1-native-notices';target.mkdir(parents=True,exist_ok=True)
+    for package,version in (('jni',pins['jni']['version']),('sqlite3',pins['sqlite']['package_version'])):
+        text=(package_folder(package)/'pubspec.yaml').read_text('utf-8')
+        actual=re.search(r'(?m)^version:\s*[\'\"]?([^\s\'\"]+)',text)
+        if not actual or actual.group(1)!=version:raise RuntimeError('Native Dart binding version changed: '+package)
+    gradle=(package_folder('flutter_webrtc')/'android/build.gradle').read_text('utf-8')
+    if 'io.github.webrtc-sdk:android:'+pins['webrtc_vendor']['version'] not in gradle:
+        raise RuntimeError('WebRTC vendor version changed; review native provenance')
+    pdfium=(package_folder('pdfium_dart')/'hook/build.dart').read_text('utf-8')
+    if pins['pdfium_vendor']['encoded_release'] not in pdfium:raise RuntimeError('PDFium vendor revision changed')
+    for item in pins['webrtc_vendor']['licenses']:
+        path=target/('WebRTC-'+item['name']);download(item['url'],path,item['sha256'])
+    pin=pins['pdfium_vendor'];archive=NATIVE/'pdfium-notices.tgz'
+    if not archive.exists():download(pin['url'],archive,pin['sha256'])
+    if sha256(archive)!=pin['sha256']:raise RuntimeError('PDFium vendor source archive hash changed')
+    count=0
+    with tarfile.open(archive) as stream:
+        for member in stream:
+            if member.isfile() and any(x in member.name.lower() for x in ('license','notice')):
+                name='PDFium-'+re.sub('[^A-Za-z0-9._-]','_',member.name)
+                (target/name).write_bytes(stream.extractfile(member).read());count+=1
+    if count<2:raise RuntimeError('PDFium third-party license bundle is missing')
+    (target/'AndroidX-DataStore-NOTICE.txt').write_text(
+        'AndroidX DataStore '+pins['datastore_version']+'\nThe Android Open Source Project\nApache License 2.0; full text in dartjni-android-Apache-2.0.txt.\nSource: https://android.googlesource.com/platform/frameworks/support/\n',encoding='utf-8')
 
 def extract_tar(archive,target):
     target.mkdir(parents=True,exist_ok=True)
@@ -193,6 +227,7 @@ def onnx_native(receipt):
 
 def prepare():
     NATIVE.mkdir(parents=True,exist_ok=True)
+    vendor_notices()
     receipt={}
     for builder in (sqlite_native,jni_native,onnx_native):
         builder(receipt)
@@ -203,6 +238,11 @@ def inventory(apk,receipt):
     _,_,tools,_=toolchain();pins=policy()
     result={}
     with zipfile.ZipFile(apk) as archive:
+        required_notices={'assets/avx1-native-notices/'+n for n in ('WebRTC-WEBRTC.md','PDFium-LICENSE',
+            'dartjni-LICENSE','dartjni-android-Apache-2.0.txt','onnxruntime-LICENSE','Eigen-COPYING.MPL2')}
+        if not required_notices.issubset(archive.namelist()):raise RuntimeError('APK native license notices are missing')
+        if archive.read('META-INF/androidx.datastore_datastore-core.version').decode().strip()!=pins['datastore_version']:
+            raise RuntimeError('DataStore native component version changed')
         for member in archive.namelist():
             if not member.startswith('lib/arm64-v8a/') or not member.endswith('.so'):continue
             name=Path(member).name;binary=NATIVE/('packaged-'+name);binary.write_bytes(archive.read(member))
@@ -221,6 +261,9 @@ def inventory(apk,receipt):
             if required and not required.issubset(symbols(binary,tools)):
                 raise RuntimeError('Packaged native exports changed: '+name)
             result[name]={**item,'packaged_sha256':sha256(binary),'packaged_bytes':binary.stat().st_size}
+            expected=item.get('expected_packaged_sha256')
+            if expected and result[name]['packaged_sha256']!=expected:
+                raise RuntimeError('Unchanged vendor native binary changed; review provenance: '+name)
     if not set(receipt).issubset(result):raise RuntimeError('A rebuilt library was not packaged')
     platform={'libc.so','libm.so','libdl.so','liblog.so','libandroid.so','libz.so','libEGL.so','libGLESv2.so',
               'libGLESv3.so','libOpenSLES.so','libvulkan.so','libaaudio.so','libjnigraphics.so'}
@@ -230,4 +273,6 @@ def inventory(apk,receipt):
         if set(needed)-platform-set(result):raise RuntimeError('Rebuilt native library has an unbundled dependency: '+name)
         result[name]['needed_libraries']=needed
     return {'abi':'arm64-v8a','baseline':'ARMv8-A','pgo':False,'fast_math_requested':False,
-            'source_built_native_libraries':sorted(receipt),'libraries':result,'physical_device_speedup_percent':None}
+            'source_built_native_libraries':sorted(receipt),'libraries':result,
+            'vendor_notice_sources':{'WebRTC':pins['webrtc_vendor'],'PDFium':pins['pdfium_vendor']},
+            'physical_device_speedup_percent':None}
