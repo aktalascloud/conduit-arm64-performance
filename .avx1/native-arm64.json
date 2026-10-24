@@ -744,5 +744,16 @@
     "url": "https://storage.googleapis.com/flutter_infra_release/flutter/cf636b1dfb818dd6a3ff16e390e93b1a036969c8/android-arm64-release/artifacts.zip",
     "sha256": "977a76c68861eb29af4fd210673a62134680c3248c9fbd59f2eca92975a4d578",
     "unstripped_sha256": "44f30b3530fe8f806fb71b1bd79124ae7537d10b66e13c3af2b6250223cf9931"
+  },
+  "bundled_vad": {
+    "version": "5.1",
+    "commit": "84768cefdf5a3852400e9d8237f7315d14b64a08",
+    "repository": "https://github.com/snakers4/silero-vad",
+    "model_source_path": "src/silero_vad/data/silero_vad.onnx",
+    "bundled_path": "assets/vad/silero_vad_v5.onnx",
+    "model_git_blob": "b3e3a900c0d70e67b5e2b90a33ad856ee7947930",
+    "model_sha256": "2623a2953f6ff3d2c1e61740c6cdb7168133479b267dfef114a4a3cc5bdd788f",
+    "license_url": "https://raw.githubusercontent.com/snakers4/silero-vad/84768cefdf5a3852400e9d8237f7315d14b64a08/LICENSE",
+    "license_sha256": "2e63e9a38b6e8fc0c7bc37ce174caca1862870856c6daf5697cfb785e925520b"
   }
 }

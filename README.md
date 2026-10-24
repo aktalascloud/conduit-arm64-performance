@@ -6,7 +6,7 @@ Experimental builds for personal compatibility and performance testing. Upstream
 
 [Upstream project](https://github.com/cogwheel0/conduit) · [Packages](https://github.com/aktalascloud/conduit-arm64-performance/releases)
 
-Download the **single APK** from the latest release and install it on Android ARM64. It combines the latest main-branch source with reviewed fork patches. A permanent application ID and signing key support upgrades. Releases contain no ZIP, CMD, models or personal settings.
+Download the **single APK** from the latest release and install it on Android ARM64. It combines the latest main-branch source with reviewed fork patches. A permanent application ID and signing key support upgrades. Releases contain no ZIP, CMD, LLM weights or personal settings. The original 2.3 MB Silero VAD speech detector remains bundled; its exact v5.1 source and MIT notice are recorded in `.avx1/native-arm64.json`.
 
 Extended Russian UI and menu translation; interpolation parameters are checked in every build.
 

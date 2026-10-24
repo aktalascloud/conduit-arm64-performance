@@ -31,6 +31,12 @@ def package_folder(name):
 
 def vendor_notices():
     pins=policy();target=ROOT/'android/app/src/main/assets/avx1-native-notices';target.mkdir(parents=True,exist_ok=True)
+    vad=pins['bundled_vad']
+    if sha256(ROOT/vad['bundled_path'])!=vad['model_sha256']:
+        raise RuntimeError('Bundled upstream VAD detector changed; review model provenance')
+    license_file=ROOT/'.avx1/licenses/Silero-VAD-MIT.txt'
+    if sha256(license_file)!=vad['license_sha256']:raise RuntimeError('Silero VAD MIT notice differs')
+    shutil.copy2(license_file,target/'Silero-VAD-MIT.txt')
     for package,version in (('jni',pins['jni']['version']),('sqlite3',pins['sqlite']['package_version'])):
         text=(package_folder(package)/'pubspec.yaml').read_text('utf-8')
         actual=re.search(r'(?m)^version:\s*[\'\"]?([^\s\'\"]+)',text)
@@ -288,7 +294,7 @@ def inventory(apk,receipt):
     result={}
     with zipfile.ZipFile(apk) as archive:
         required_notices={'assets/avx1-native-notices/'+n for n in ('WebRTC-WEBRTC.md','PDFium-LICENSE',
-            'dartjni-LICENSE','dartjni-android-Apache-2.0.txt','onnxruntime-LICENSE','Eigen-COPYING.MPL2')}
+            'dartjni-LICENSE','dartjni-android-Apache-2.0.txt','onnxruntime-LICENSE','Eigen-COPYING.MPL2','Silero-VAD-MIT.txt')}
         if not required_notices.issubset(archive.namelist()):raise RuntimeError('APK native license notices are missing')
         if archive.read('META-INF/androidx.datastore_datastore-core.version').decode().strip()!=pins['datastore_version']:
             raise RuntimeError('DataStore native component version changed')
@@ -325,4 +331,5 @@ def inventory(apk,receipt):
     return {'abi':'arm64-v8a','baseline':'ARMv8-A','pgo':False,'fast_math_requested':False,
             'source_built_native_libraries':sorted(receipt),'libraries':result,
             'vendor_notice_sources':{'WebRTC':pins['webrtc_vendor'],'PDFium':pins['pdfium_vendor']},
+            'bundled_upstream_vad':pins['bundled_vad'],
             'physical_device_speedup_percent':None}
